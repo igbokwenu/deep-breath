@@ -6,11 +6,16 @@ class AnxietyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: 100,
-        height: 100,
-        color: Colors.green,
-        child: Text("Anxiety"),
+      body: SafeArea(
+        child: Center(
+          child: Container(
+            alignment: Alignment.center,
+            width: 400,
+            height: 400,
+            color: Colors.green,
+            child: Text("Anxiety"),
+          ),
+        ),
       ),
     );
   }

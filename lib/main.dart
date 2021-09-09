@@ -1,4 +1,6 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:deep_breath/screens/anxiety.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vertical_card_pager/vertical_card_pager.dart';
@@ -14,131 +16,121 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: MyHomePage(),
+      // home: Home(),
+      initialRoute: "/",
+      routes: {
+        '/': (ctx) => Home(),
+        '/anxiety': (ctx) => AnxietyScreen(),
+      },
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     // You have to call it on your starting screen
     SizeConfig().init(context);
-    final List<String> titles = [
-      "RED anxiety",
-      "YELLOW",
-      "BLACK",
-      "CYAN",
-      "BLUE",
-      "GREY",
-      "PINK"
-    ];
-
-    final List<Widget> images = [
-      GestureDetector(
-        onTap: () => Get.to(AnxietyScreen()),
-        child: Container(
-          color: Colors.red,
-        ),
-      ),
-      Container(
-        color: Colors.yellow,
-      ),
-      Container(
-        color: Colors.black,
-      ),
-      Container(
-        color: Colors.cyan,
-      ),
-      Container(
-        color: Colors.blue,
-      ),
-      Container(
-        color: Colors.grey,
-      ),
-      Padding(
-        padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
-        child: Stack(
-          children: [
-            SizedBox(
-              width: getProportionateScreenWidth(242),
-              height: getProportionateScreenWidth(100),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Stack(
-                  children: [
-                    Image.asset(
-                      'assets/images/falling.gif',
-                      fit: BoxFit.cover,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        gradient: recommendedLinearGradient(),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: getProportionateScreenWidth(15),
-                          vertical: getProportionateScreenWidth(10)),
-                      child: Text.rich(
-                        TextSpan(
-                          style: TextStyle(color: kWhiteColor),
-                          children: [
-                            TextSpan(
-                              text: "Phones and Laptops\n",
-                              style: bannerTextStyle(),
-                            ),
-                            TextSpan(
-                              text: 'Amazing Prizes + Quick Delivery!',
-                              style: bannerSubTextStyle(),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Positioned.fill(
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  splashColor: kPrimaryColor.withOpacity(0.6),
-                  borderRadius: BorderRadius.circular(20),
-                  onTap: () {},
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    ];
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: Container(
-                child: VerticalCardPager(
-                  textStyle: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                  titles: titles,
-                  images: images,
-                  onPageChanged: (page) {},
-                  align: ALIGN.CENTER,
-                  onSelectedItem: (index) {},
+        backgroundColor: Colors.grey,
+        body: SafeArea(
+          child: Center(
+            child: Column(
+              children: [
+                FadeInLeft(
+                  child: HomeItem(
+                    subText: 'anxiety',
+                    image: 'assets/images/falling_square.gif',
+                  ),
                 ),
+              ],
+            ),
+          ),
+        ));
+  }
+}
+
+class HomeItem extends StatelessWidget {
+  const HomeItem({
+    Key? key,
+    required this.image,
+    required this.subText,
+  }) : super(key: key);
+
+  final String image;
+  final String subText;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(
+          left: getProportionateScreenWidth(15),
+          right: getProportionateScreenWidth(15),
+          top: getProportionateScreenWidth(20)),
+      child: Stack(
+        children: [
+          SizedBox(
+            width: getProportionateScreenWidth(300),
+            height: getProportionateScreenWidth(300),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(
+                      image,
+                      width: getProportionateScreenWidth(300),
+                      height: getProportionateScreenWidth(300),
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: recommendedLinearGradient(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: getProportionateScreenWidth(15),
+                        vertical: getProportionateScreenWidth(10)),
+                    child: Text.rich(
+                      TextSpan(
+                        style: TextStyle(color: kWhiteColor),
+                        children: [
+                          TextSpan(
+                            text: "overcome\n",
+                            style: bannerTextStyle(),
+                          ),
+                          TextSpan(
+                            text: subText,
+                            style: bannerSubTextStyle(),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+          Positioned.fill(
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                splashColor: kPrimaryColor.withOpacity(0.6),
+                borderRadius: BorderRadius.circular(20),
+                onTap: () {
+                  Get.to(AnxietyScreen());
+                },
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
