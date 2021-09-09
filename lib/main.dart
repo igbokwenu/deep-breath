@@ -3,10 +3,10 @@ import 'package:deep_breath/screens/anxiety.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vertical_card_pager/vertical_card_pager.dart';
 
 import 'components/constants.dart';
 import 'components/size_config.dart';
+import 'models/models.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,106 +33,48 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final int duration = 3;
     // You have to call it on your starting screen
     SizeConfig().init(context);
     return Scaffold(
         backgroundColor: Colors.grey,
         body: SafeArea(
           child: Center(
-            child: Column(
-              children: [
-                FadeInLeft(
-                  child: HomeItem(
-                    subText: 'anxiety',
-                    image: 'assets/images/falling_square.gif',
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ));
-  }
-}
-
-class HomeItem extends StatelessWidget {
-  const HomeItem({
-    Key? key,
-    required this.image,
-    required this.subText,
-  }) : super(key: key);
-
-  final String image;
-  final String subText;
-
-  @override
-  Widget build(BuildContext context) {
-    const double imageSize = 320;
-    return Padding(
-      padding: EdgeInsets.only(
-          left: getProportionateScreenWidth(15),
-          right: getProportionateScreenWidth(15),
-          top: getProportionateScreenWidth(20)),
-      child: Stack(
-        children: [
-          SizedBox(
-            width: getProportionateScreenWidth(imageSize),
-            height: getProportionateScreenWidth(imageSize),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Stack(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                      image,
-                      width: getProportionateScreenWidth(imageSize),
-                      height: getProportionateScreenWidth(imageSize),
-                      fit: BoxFit.fitWidth,
+                  FadeInLeft(
+                    duration: Duration(seconds: duration),
+                    child: HomeItem(
+                      subText: 'sickness',
+                      image: 'assets/images/sickness.gif',
+                      press: () => Get.to(AnxietyScreen()),
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      gradient: recommendedLinearGradient(),
+                  FadeInRight(
+                    duration: Duration(seconds: duration),
+                    child: HomeItem(
+                      subText: 'anxiety',
+                      image: 'assets/images/anxiety_square.gif',
+                      press: () => Get.to(AnxietyScreen()),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: getProportionateScreenWidth(15),
-                        vertical: getProportionateScreenWidth(10)),
-                    child: Text.rich(
-                      TextSpan(
-                        style: TextStyle(color: kWhiteColor),
-                        children: [
-                          TextSpan(
-                            text: "overcome\n",
-                            style: bannerTextStyle(),
-                          ),
-                          TextSpan(
-                            text: subText,
-                            style: bannerSubTextStyle(),
-                          )
-                        ],
-                      ),
+                  FadeInDown(
+                    duration: Duration(seconds: duration),
+                    child: HomeItem(
+                      subText: 'fear',
+                      image: 'assets/images/falling_square.gif',
+                      press: () => Get.to(AnxietyScreen()),
                     ),
                   ),
+                  SizedBox(
+                    height: getProportionateScreenWidth(50),
+                  )
                 ],
               ),
             ),
           ),
-          Positioned.fill(
-            child: Material(
-              color: Colors.transparent,
-              child: InkWell(
-                splashColor: kPrimaryColor.withOpacity(0.6),
-                borderRadius: BorderRadius.circular(20),
-                onTap: () {
-                  Get.to(AnxietyScreen());
-                },
-              ),
-            ),
-          )
-        ],
-      ),
-    );
+        ));
   }
 }

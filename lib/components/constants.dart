@@ -58,7 +58,8 @@ TextStyle bannerSubTextStyle() {
   return TextStyle(
       color: kWhiteColor,
       fontWeight: FontWeight.bold,
-      backgroundColor: kPrimaryColor.withOpacity(0.5));
+      backgroundColor: kPrimaryColor.withOpacity(0.5),
+      fontSize: getProportionateScreenWidth(20));
 }
 
 TextStyle bannerTextStyle() {
