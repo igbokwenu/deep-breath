@@ -66,6 +66,7 @@ class HomeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const double imageSize = 320;
     return Padding(
       padding: EdgeInsets.only(
           left: getProportionateScreenWidth(15),
@@ -74,8 +75,8 @@ class HomeItem extends StatelessWidget {
       child: Stack(
         children: [
           SizedBox(
-            width: getProportionateScreenWidth(300),
-            height: getProportionateScreenWidth(300),
+            width: getProportionateScreenWidth(imageSize),
+            height: getProportionateScreenWidth(imageSize),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Stack(
@@ -84,8 +85,8 @@ class HomeItem extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
                       image,
-                      width: getProportionateScreenWidth(300),
-                      height: getProportionateScreenWidth(300),
+                      width: getProportionateScreenWidth(imageSize),
+                      height: getProportionateScreenWidth(imageSize),
                       fit: BoxFit.fitWidth,
                     ),
                   ),
