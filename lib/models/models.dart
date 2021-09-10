@@ -1,7 +1,6 @@
 import 'package:deep_breath/components/constants.dart';
 import 'package:deep_breath/components/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class HomeTopBanner extends StatelessWidget {
   const HomeTopBanner({
@@ -63,16 +62,6 @@ class HomeTopBanner extends StatelessWidget {
               ),
             ),
           ),
-          Positioned.fill(
-            child: Material(
-              color: Colors.transparent,
-              child: InkWell(
-                splashColor: kPrimaryColor.withOpacity(0.6),
-                borderRadius: BorderRadius.circular(20),
-                onTap: () {},
-              ),
-            ),
-          )
         ],
       ),
     );
@@ -153,6 +142,67 @@ class HomeItem extends StatelessWidget {
               child: InkWell(
                 splashColor: kPrimaryColor.withOpacity(0.6),
                 borderRadius: BorderRadius.circular(20),
+                onTap: press,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class ScriptureList extends StatelessWidget {
+  const ScriptureList({
+    Key? key,
+    required this.text,
+    required this.press,
+  }) : super(key: key);
+
+  final String text;
+  final VoidCallback press;
+
+  @override
+  Widget build(BuildContext context) {
+    const double radius = 10;
+    return Padding(
+      padding: EdgeInsets.only(bottom: getProportionateScreenWidth(10)),
+      child: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.green,
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.circular(radius)),
+            alignment: Alignment.center,
+            width: getProportionateScreenWidth(350),
+            height: getProportionateScreenWidth(70),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: getProportionateScreenWidth(15),
+                ),
+                Icon(
+                  Icons.play_circle_outline,
+                  size: getProportionateScreenWidth(20),
+                ),
+                SizedBox(
+                  width: getProportionateScreenWidth(5),
+                ),
+                Text(
+                  text,
+                  style: TextStyle(fontSize: getProportionateScreenWidth(15)),
+                ),
+              ],
+            ),
+          ),
+          Positioned.fill(
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                splashColor: kPrimaryColor.withOpacity(0.6),
+                borderRadius: BorderRadius.circular(radius),
                 onTap: press,
               ),
             ),

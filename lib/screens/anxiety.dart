@@ -1,3 +1,4 @@
+import 'package:deep_breath/components/constants.dart';
 import 'package:deep_breath/components/size_config.dart';
 import 'package:deep_breath/models/models.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class AnxietyScreen extends StatelessWidget {
           child: AnimationLimiter(
             child: Column(
               children: AnimationConfiguration.toStaggeredList(
-                duration: const Duration(milliseconds: 1200),
+                duration: const Duration(milliseconds: 800),
                 childAnimationBuilder: (widget) => SlideAnimation(
                   horizontalOffset: 50.0,
                   child: ScaleAnimation(
@@ -40,29 +41,25 @@ class AnxietyScreen extends StatelessWidget {
                 ),
                 children: [
                   HomeTopBanner(),
-                  Container(
-                    margin: EdgeInsets.only(bottom: 10),
-                    alignment: Alignment.center,
-                    width: 400,
-                    height: 100,
-                    color: Colors.green,
-                    child: Text("Anxiety"),
+                  ScriptureList(
+                    text: 'Believe what God says',
+                    press: () {},
                   ),
-                  Container(
-                    margin: EdgeInsets.only(bottom: 10),
-                    alignment: Alignment.center,
-                    width: 400,
-                    height: 100,
-                    color: Colors.green,
-                    child: Text("Anxiety"),
+                  ScriptureList(
+                    text: 'It is finished',
+                    press: () {},
                   ),
-                  Container(
-                    margin: EdgeInsets.only(bottom: 10),
-                    alignment: Alignment.center,
-                    width: 400,
-                    height: 100,
-                    color: Colors.green,
-                    child: Text("Anxiety"),
+                  ScriptureList(
+                    text: 'According to your faith',
+                    press: () {},
+                  ),
+                  ScriptureList(
+                    text: 'Believe what God says',
+                    press: () {},
+                  ),
+                  ScriptureList(
+                    text: 'Believe what God says',
+                    press: () {},
                   ),
                 ],
               ),

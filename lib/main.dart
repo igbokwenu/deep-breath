@@ -2,13 +2,18 @@ import 'package:animate_do/animate_do.dart';
 import 'package:deep_breath/screens/anxiety.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'components/constants.dart';
 import 'components/size_config.dart';
 import 'models/models.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
+  );
   runApp(MyApp());
 }
 
@@ -33,7 +38,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int duration = 1300;
+    final int duration = 900;
     // You have to call it on your starting screen
     SizeConfig().init(context);
     return Scaffold(
