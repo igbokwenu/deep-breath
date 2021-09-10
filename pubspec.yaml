@@ -36,6 +36,7 @@ dependencies:
   get: ^4.3.8
   vertical_card_pager: ^1.5.0
   flutter_staggered_animations: ^1.0.0
+  provider:
 
 dev_dependencies:
   flutter_test:

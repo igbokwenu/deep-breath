@@ -33,10 +33,30 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int duration = 3;
+    final int duration = 1300;
     // You have to call it on your starting screen
     SizeConfig().init(context);
     return Scaffold(
+        appBar: AppBar(
+          backgroundColor: kPrimaryColor,
+          title: Align(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text("About"),
+                SizedBox(
+                  width: getProportionateScreenWidth(5),
+                ),
+                Icon(Icons.info_outline),
+                SizedBox(
+                  width: getProportionateScreenWidth(20),
+                ),
+                Icon(Icons.settings),
+              ],
+            ),
+            alignment: Alignment.centerRight,
+          ),
+        ),
         backgroundColor: Colors.grey,
         body: SafeArea(
           child: Center(
@@ -45,15 +65,15 @@ class Home extends StatelessWidget {
               child: Column(
                 children: [
                   FadeInLeft(
-                    duration: Duration(seconds: duration),
+                    duration: Duration(milliseconds: duration),
                     child: HomeItem(
                       subText: 'sickness',
                       image: 'assets/images/sickness.gif',
-                      press: () => Get.to(AnxietyScreen()),
+                      press: () => Get.off(AnxietyScreen()),
                     ),
                   ),
                   FadeInRight(
-                    duration: Duration(seconds: duration),
+                    duration: Duration(milliseconds: duration),
                     child: HomeItem(
                       subText: 'anxiety',
                       image: 'assets/images/anxiety_square.gif',
@@ -61,7 +81,7 @@ class Home extends StatelessWidget {
                     ),
                   ),
                   FadeInDown(
-                    duration: Duration(seconds: duration),
+                    duration: Duration(milliseconds: duration),
                     child: HomeItem(
                       subText: 'fear',
                       image: 'assets/images/falling_square.gif',
