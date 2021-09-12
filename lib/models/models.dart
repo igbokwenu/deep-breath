@@ -41,20 +41,23 @@ class HomeTopBanner extends StatelessWidget {
                     padding: EdgeInsets.symmetric(
                         horizontal: getProportionateScreenWidth(15),
                         vertical: getProportionateScreenWidth(10)),
-                    child: Text.rich(
-                      TextSpan(
-                        style: TextStyle(color: kWhiteColor),
-                        children: [
-                          TextSpan(
-                            text: "Use Scriptures To Overcome\n",
-                            style: bannerTextStyle(),
-                          ),
-                          // TextSpan(
-                          //   text:
-                          //       'Amazing Prizes + Quick Delivery!',
-                          //   style: bannerSubTextStyle(),
-                          // )
-                        ],
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: Text.rich(
+                        TextSpan(
+                          style: TextStyle(color: kWhiteColor),
+                          children: [
+                            TextSpan(
+                              text: "a scripture a day...\n",
+                              style: bannerTextStyle(),
+                            ),
+                            // TextSpan(
+                            //   text:
+                            //       'Amazing Prizes + Quick Delivery!',
+                            //   style: bannerSubTextStyle(),
+                            // )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -74,11 +77,13 @@ class HomeItem extends StatelessWidget {
     required this.image,
     required this.subText,
     required this.press,
+    this.backgroundColor,
   }) : super(key: key);
 
   final String image;
   final String subText;
   final VoidCallback press;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +96,11 @@ class HomeItem extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          SizedBox(
+          Container(
+            decoration: BoxDecoration(
+                color: backgroundColor,
+                //shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.circular(20)),
             width: getProportionateScreenWidth(imageSize),
             height: getProportionateScreenWidth(imageSize),
             child: ClipRRect(
@@ -157,10 +166,12 @@ class ScriptureList extends StatelessWidget {
     Key? key,
     required this.text,
     required this.press,
+    this.color,
   }) : super(key: key);
 
   final String text;
   final VoidCallback press;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -171,7 +182,7 @@ class ScriptureList extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-                color: Colors.green,
+                color: color ?? Colors.lightGreenAccent,
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.circular(radius)),
             alignment: Alignment.center,
@@ -186,6 +197,7 @@ class ScriptureList extends StatelessWidget {
                 Icon(
                   Icons.play_circle_outline,
                   size: getProportionateScreenWidth(20),
+                  color: kPrimaryColor,
                 ),
                 SizedBox(
                   width: getProportionateScreenWidth(5),

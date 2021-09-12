@@ -12,56 +12,61 @@ class AnxietyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.blueGrey,
-            size: getProportionateScreenWidth(20),
+    return Container(
+      decoration: backGroundGradient(),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          toolbarHeight: getProportionateScreenWidth(45),
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.blueGrey,
+              size: getProportionateScreenWidth(20),
+            ),
+            onPressed: () {
+              Get.to(Home());
+            },
           ),
-          onPressed: () {
-            Get.to(Home());
-          },
         ),
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: AnimationLimiter(
-            child: Column(
-              children: AnimationConfiguration.toStaggeredList(
-                duration: const Duration(milliseconds: 800),
-                childAnimationBuilder: (widget) => SlideAnimation(
-                  horizontalOffset: 50.0,
-                  child: ScaleAnimation(
-                    child: widget,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: AnimationLimiter(
+              child: Column(
+                children: AnimationConfiguration.toStaggeredList(
+                  duration: const Duration(milliseconds: 800),
+                  childAnimationBuilder: (widget) => SlideAnimation(
+                    horizontalOffset: 50.0,
+                    child: ScaleAnimation(
+                      child: widget,
+                    ),
                   ),
+                  children: [
+                    HomeTopBanner(),
+                    ScriptureList(
+                      text: 'Believe what God says',
+                      press: () {},
+                    ),
+                    ScriptureList(
+                      text: 'It is finished',
+                      press: () {},
+                    ),
+                    ScriptureList(
+                      text: 'According to your faith',
+                      press: () {},
+                    ),
+                    ScriptureList(
+                      text: 'Believe what God says',
+                      press: () {},
+                    ),
+                    ScriptureList(
+                      text: 'Believe what God says',
+                      press: () {},
+                    ),
+                  ],
                 ),
-                children: [
-                  HomeTopBanner(),
-                  ScriptureList(
-                    text: 'Believe what God says',
-                    press: () {},
-                  ),
-                  ScriptureList(
-                    text: 'It is finished',
-                    press: () {},
-                  ),
-                  ScriptureList(
-                    text: 'According to your faith',
-                    press: () {},
-                  ),
-                  ScriptureList(
-                    text: 'Believe what God says',
-                    press: () {},
-                  ),
-                  ScriptureList(
-                    text: 'Believe what God says',
-                    press: () {},
-                  ),
-                ],
               ),
             ),
           ),

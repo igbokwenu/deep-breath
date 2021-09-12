@@ -79,3 +79,13 @@ LinearGradient recommendedLinearGradient() {
     ],
   );
 }
+
+BoxDecoration backGroundGradient() {
+  return BoxDecoration(
+    gradient: LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [Colors.greenAccent, Colors.orange, Colors.lightGreenAccent],
+    ),
+  );
+}
