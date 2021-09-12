@@ -43,24 +43,60 @@ class Home extends StatelessWidget {
     SizeConfig().init(context);
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: kPrimaryColor,
-          title: Align(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text("About"),
-                SizedBox(
-                  width: getProportionateScreenWidth(5),
+          actions: [
+            PopupMenuButton(
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.info_outline,
+                          color: kPrimaryColor,
+                        ),
+                      ),
+                      Text("About"),
+                    ],
+                  ),
                 ),
-                Icon(Icons.info_outline),
-                SizedBox(
-                  width: getProportionateScreenWidth(20),
+                PopupMenuItem(
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.remove_circle_outline,
+                          color: kPrimaryColor,
+                        ),
+                      ),
+                      Text("Remove Ads"),
+                    ],
+                  ),
                 ),
-                Icon(Icons.settings),
+                PopupMenuItem(
+                    child: Divider(
+                  height: 10,
+                  thickness: 5,
+                )),
+                PopupMenuItem(
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.contact_mail_outlined,
+                          color: kPrimaryColor,
+                        ),
+                      ),
+                      Text("Contact Us"),
+                    ],
+                  ),
+                ),
               ],
             ),
-            alignment: Alignment.centerRight,
-          ),
+          ],
+          backgroundColor: kPrimaryColor,
         ),
         backgroundColor: Colors.grey,
         body: SafeArea(
