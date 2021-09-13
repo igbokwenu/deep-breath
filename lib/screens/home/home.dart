@@ -169,6 +169,16 @@ class _HomeState extends State<Home> {
           context: context,
           applicationName: _packageInfo.appName,
           applicationVersion: _packageInfo.version,
+          applicationLegalese: "Developed by Increase Okechukwu Divine-Wisdom",
+          children: [
+            Divider(
+              thickness: 2,
+            ),
+            Text(
+              "In loving memory of my mum, Kathrine Ugochi Okafor, the most prayerful woman who ever lived, and to Colleen Holloran Foshee, a remarkable woman of faith. Special thanks to Lisa Ramsey, whose constant fellowship with me built my faith through my health challenges; And to Tochukwu Nnamonu (TC), a friend and brother who would not let things I built over the years collapse when my health took a hit. Special thanks to Alan and Holly Smith who provided a myraid of scriptural references and faith building resources which ended up inspiring my making of this app. And to Dee, Nnanyelu, Amaka and Sweet for their support and prayers. And to Judie, and Jack for the fellowship. \n This app was originally intended as a personal resource for building my faith in the midst of a health crises that eventually spiraled into a health and financial crisis. Over the course of time, I realised that my crisis was a spiritual first affair as the doctors could not find anything wrong with me physically. This triggered a spiritual reawakening and a journey that has brought me here. It is my hope and prayers that you find the resources helpful in whichever aspect of your life that you seek healing.",
+              style: TextStyle(fontSize: getProportionateScreenWidth(12)),
+            ),
+          ],
         );
         break;
       case 1:
