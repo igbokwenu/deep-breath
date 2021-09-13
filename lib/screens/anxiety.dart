@@ -1,12 +1,11 @@
 import 'package:deep_breath/components/constants.dart';
 import 'package:deep_breath/components/size_config.dart';
 import 'package:deep_breath/models/models.dart';
-import 'package:deep_breath/screens/audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 
-import '../main.dart';
+import 'home/home.dart';
 
 class AnxietyScreen extends StatelessWidget {
   const AnxietyScreen({Key? key}) : super(key: key);

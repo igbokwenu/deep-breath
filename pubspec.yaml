@@ -37,6 +37,8 @@ dependencies:
   vertical_card_pager: ^1.5.0
   flutter_staggered_animations: ^1.0.0
   provider:
+  package_info_plus: ^1.0.6
+  rflutter_alert: ^2.0.4
 
 dev_dependencies:
   flutter_test:
