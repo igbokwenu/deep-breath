@@ -48,7 +48,7 @@ class HomeTopBanner extends StatelessWidget {
                           style: TextStyle(color: kWhiteColor),
                           children: [
                             TextSpan(
-                              text: "a scripture a day...\n",
+                              text: "a scripture a day, quickens the Spirit\n",
                               style: bannerTextStyle(),
                             ),
                             // TextSpan(
@@ -182,9 +182,14 @@ class ScriptureList extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-                color: color ?? Colors.lightGreenAccent,
-                shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.circular(radius)),
+              gradient: LinearGradient(
+                  colors: [Colors.green, Colors.blue.withOpacity(0.3)]),
+              //color: color ?? Colors.orange,
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(radius),
+              border: Border.all(
+                  width: getProportionateScreenWidth(3), color: Colors.white),
+            ),
             alignment: Alignment.center,
             width: getProportionateScreenWidth(350),
             height: getProportionateScreenWidth(70),
@@ -197,14 +202,16 @@ class ScriptureList extends StatelessWidget {
                 Icon(
                   Icons.play_circle_outline,
                   size: getProportionateScreenWidth(20),
-                  color: kPrimaryColor,
+                  color: Colors.white,
                 ),
                 SizedBox(
                   width: getProportionateScreenWidth(5),
                 ),
                 Text(
                   text,
-                  style: TextStyle(fontSize: getProportionateScreenWidth(15)),
+                  style: TextStyle(
+                      fontSize: getProportionateScreenWidth(15),
+                      color: Colors.white),
                 ),
               ],
             ),

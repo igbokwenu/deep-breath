@@ -65,7 +65,8 @@ TextStyle bannerSubTextStyle() {
 TextStyle bannerTextStyle() {
   return TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: getProportionateScreenWidth(16),
+    fontSize: getProportionateScreenWidth(12),
+    fontStyle: FontStyle.italic,
   );
 }
 

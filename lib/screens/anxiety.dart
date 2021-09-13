@@ -1,6 +1,7 @@
 import 'package:deep_breath/components/constants.dart';
 import 'package:deep_breath/components/size_config.dart';
 import 'package:deep_breath/models/models.dart';
+import 'package:deep_breath/screens/audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
@@ -27,7 +28,7 @@ class AnxietyScreen extends StatelessWidget {
               size: getProportionateScreenWidth(20),
             ),
             onPressed: () {
-              Get.to(Home());
+              Get.off(() => Home());
             },
           ),
         ),

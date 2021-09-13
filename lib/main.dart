@@ -119,7 +119,7 @@ class Home extends StatelessWidget {
                       child: HomeItem(
                         subText: 'sickness',
                         image: 'assets/images/sickness.gif',
-                        press: () => Get.off(AnxietyScreen()),
+                        press: () => Get.off(() => AnxietyScreen()),
                       ),
                     ),
                     FadeInRight(
@@ -127,7 +127,7 @@ class Home extends StatelessWidget {
                       child: HomeItem(
                         subText: 'anxiety',
                         image: 'assets/images/anxiety_square.gif',
-                        press: () => Get.to(AnxietyScreen()),
+                        press: () => Get.off(() => AnxietyScreen()),
                         backgroundColor: Colors.red,
                       ),
                     ),
@@ -136,7 +136,7 @@ class Home extends StatelessWidget {
                       child: HomeItem(
                         subText: 'fear',
                         image: 'assets/images/falling_square.gif',
-                        press: () => Get.to(AnxietyScreen()),
+                        press: () => Get.off(() => AnxietyScreen()),
                       ),
                     ),
                     SizedBox(

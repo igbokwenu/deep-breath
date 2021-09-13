@@ -1,8 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.skylinefuturistic.deep_breath.deep_breath">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="deep_breath"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Deep Breath"
+        android:icon="@mipmap/ic_launcher"
+       android:usesCleartextTraffic="true"
+       >
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
