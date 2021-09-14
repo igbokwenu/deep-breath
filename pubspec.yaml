@@ -42,9 +42,15 @@ dependencies:
   audioplayers: ^0.20.1
   just_audio: ^0.9.11
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.9.2"
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/deep_breath_logo2.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
