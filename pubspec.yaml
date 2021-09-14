@@ -41,6 +41,7 @@ dependencies:
   rflutter_alert: ^2.0.4
   audioplayers: ^0.20.1
   just_audio: ^0.9.11
+  just_audio_background: ^0.0.1-beta.1
 
 
 dev_dependencies:

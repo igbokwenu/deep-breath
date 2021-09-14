@@ -90,3 +90,7 @@ BoxDecoration backGroundGradient() {
     ),
   );
 }
+
+LinearGradient linearGradient() {
+  return LinearGradient(colors: [Colors.green, Colors.blue.withOpacity(0.3)]);
+}

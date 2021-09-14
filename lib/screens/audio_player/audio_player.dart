@@ -2,6 +2,7 @@
 // More advanced examples demonstrating other features can be found in the same
 // directory as this example in the GitHub repository.
 
+import 'package:animate_do/animate_do.dart';
 import 'package:audio_session/audio_session.dart';
 import 'package:deep_breath/components/constants.dart';
 import 'package:deep_breath/components/size_config.dart';
@@ -141,13 +142,16 @@ class ControlButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          width: getProportionateScreenWidth(350),
-          height: getProportionateScreenWidth(350),
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                  image: AssetImage("assets/images/deep_breath_logo2.png"))),
+        ZoomIn(
+          duration: Duration(milliseconds: 1200),
+          child: Container(
+            width: getProportionateScreenWidth(350),
+            height: getProportionateScreenWidth(350),
+            decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    image: AssetImage("assets/images/deep_breath_logo2.png"))),
+          ),
         ),
         Row(
           mainAxisSize: MainAxisSize.min,
@@ -185,7 +189,9 @@ class ControlButtons extends StatelessWidget {
                     margin: EdgeInsets.all(8.0),
                     width: 64.0,
                     height: 64.0,
-                    child: CircularProgressIndicator(),
+                    child: CircularProgressIndicator(
+                      color: Colors.white,
+                    ),
                   );
                 } else if (playing != true) {
                   return IconButton(

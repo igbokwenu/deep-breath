@@ -182,8 +182,7 @@ class ScriptureList extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Colors.green, Colors.blue.withOpacity(0.3)]),
+              gradient: linearGradient(),
               //color: color ?? Colors.orange,
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.circular(radius),

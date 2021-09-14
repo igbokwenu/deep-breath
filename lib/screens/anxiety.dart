@@ -40,7 +40,7 @@ class AnxietyScreen extends StatelessWidget {
             child: AnimationLimiter(
               child: Column(
                 children: AnimationConfiguration.toStaggeredList(
-                  duration: const Duration(milliseconds: 800),
+                  duration: const Duration(milliseconds: 600),
                   childAnimationBuilder: (widget) => SlideAnimation(
                     horizontalOffset: 50.0,
                     child: ScaleAnimation(
@@ -80,12 +80,24 @@ class AnxietyScreen extends StatelessWidget {
                       },
                     ),
                     ScriptureList(
-                      text: 'Believe what God says',
-                      press: () {},
+                      text: 'HE meant what he said',
+                      press: () {
+                        Get.to(() => MyApp(
+                              url:
+                                  "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+                              press: press,
+                            ));
+                      },
                     ),
                     ScriptureList(
-                      text: 'Believe what God says',
-                      press: () {},
+                      text: 'Yes and Amen',
+                      press: () {
+                        Get.to(() => MyApp(
+                              url:
+                                  "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+                              press: press,
+                            ));
+                      },
                     ),
                   ],
                 ),
