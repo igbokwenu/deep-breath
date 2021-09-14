@@ -5,6 +5,7 @@ import 'package:deep_breath/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import '../anxiety.dart';
 
 class Home extends StatefulWidget {
@@ -93,11 +94,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                PopupMenuItem(
-                    child: Divider(
-                  color: kPrimaryColor,
-                  thickness: 1,
-                )),
+                PopupMenuDivider(),
                 PopupMenuItem<int>(
                   value: 2,
                   child: Row(
@@ -167,6 +164,14 @@ class _HomeState extends State<Home> {
       case 0:
         showAboutDialog(
           context: context,
+          applicationIcon: Container(
+            width: getProportionateScreenWidth(100),
+            height: getProportionateScreenWidth(100),
+            decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    image: AssetImage("assets/images/deep_breath_logo2.png"))),
+          ),
           applicationName: _packageInfo.appName,
           applicationVersion: _packageInfo.version,
           applicationLegalese: "Developed by Increase Okechukwu Divine-Wisdom",
@@ -182,10 +187,51 @@ class _HomeState extends State<Home> {
         );
         break;
       case 1:
-        Get.to(() => AnxietyScreen());
+        Alert(
+          context: context,
+          type: AlertType.error,
+          title: "RFLUTTER ALERT",
+          desc: "Flutter is more awesome with RFlutter Alert.",
+          buttons: [
+            DialogButton(
+              child: Text(
+                "COOL",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+              onPressed: () => Navigator.pop(context),
+              width: 120,
+            )
+          ],
+        ).show();
         break;
       case 2:
-        Get.to(() => AnxietyScreen());
+        Alert(
+          context: context,
+          type: AlertType.none,
+          title: "We look forward to your mail",
+          desc: "deepbreath@skylinefuturistic.com",
+          style: AlertStyle(
+            titleStyle: TextStyle(
+              fontSize: getProportionateScreenWidth(15),
+            ),
+            descStyle: TextStyle(
+              fontSize: getProportionateScreenWidth(15),
+            ),
+          ),
+          buttons: [
+            DialogButton(
+              child: Text(
+                "Send a mail",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: getProportionateScreenWidth(15),
+                ),
+              ),
+              onPressed: () => Navigator.pop(context),
+              width: 170,
+            )
+          ],
+        ).show();
         break;
     }
   }

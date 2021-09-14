@@ -48,7 +48,7 @@ class HomeTopBanner extends StatelessWidget {
                           style: TextStyle(color: kWhiteColor),
                           children: [
                             TextSpan(
-                              text: "a scripture a day, quickens the Spirit\n",
+                              text: "",
                               style: bannerTextStyle(),
                             ),
                             // TextSpan(
