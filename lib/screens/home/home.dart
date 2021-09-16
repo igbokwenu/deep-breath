@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:deep_breath/components/constants.dart';
 import 'package:deep_breath/components/size_config.dart';
 import 'package:deep_breath/models/models.dart';
+import 'package:deep_breath/screens/home/components/healing.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -127,7 +128,7 @@ class _HomeState extends State<Home> {
                     child: HomeItem(
                       subText: 'sickness',
                       image: 'assets/images/sickness.gif',
-                      press: () => Get.off(() => AnxietyScreen()),
+                      press: () => Get.off(() => HealingScreen()),
                     ),
                   ),
                   FadeInRight(
