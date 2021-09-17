@@ -56,6 +56,7 @@ class AnxietyScreen extends StatelessWidget {
                               url:
                                   "https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3",
                               press: press,
+                              title: '',
                             ));
                       },
                     ),
@@ -66,6 +67,7 @@ class AnxietyScreen extends StatelessWidget {
                               url:
                                   "https://firebasestorage.googleapis.com/v0/b/opensource-11ed5.appspot.com/o/flutter_audio_plugin%2FSampleAudio_0.4mb.mp3?alt=media&token=a6334d66-dc48-4562-b126-ed7004b18e5c",
                               press: press,
+                              title: '',
                             ));
                       },
                     ),
@@ -76,6 +78,7 @@ class AnxietyScreen extends StatelessWidget {
                               url:
                                   "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
                               press: press,
+                              title: '',
                             ));
                       },
                     ),
@@ -86,6 +89,7 @@ class AnxietyScreen extends StatelessWidget {
                               url:
                                   "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
                               press: press,
+                              title: '',
                             ));
                       },
                     ),
@@ -96,6 +100,7 @@ class AnxietyScreen extends StatelessWidget {
                               url:
                                   "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
                               press: press,
+                              title: '',
                             ));
                       },
                     ),

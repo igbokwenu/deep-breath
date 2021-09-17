@@ -7,6 +7,7 @@ import 'package:audio_session/audio_session.dart';
 import 'package:deep_breath/components/constants.dart';
 import 'package:deep_breath/components/size_config.dart';
 import 'package:deep_breath/screens/anxiety.dart';
+import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart' as Getx;
@@ -18,7 +19,8 @@ import 'components/common.dart';
 class MyApp extends StatefulWidget {
   final String url;
   final VoidCallback press;
-  MyApp({required this.url, required this.press});
+  final String title;
+  MyApp({required this.url, required this.press, required this.title});
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -103,28 +105,44 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           ),
         ),
         body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Display play/pause button and volume/speed sliders.
-              ControlButtons(_player),
-              // Display seek bar. Using StreamBuilder, this widget rebuilds
-              // each time the position, buffered position or duration changes.
-              StreamBuilder<PositionData>(
-                stream: _positionDataStream,
-                builder: (context, snapshot) {
-                  final positionData = snapshot.data;
-                  return SeekBar(
-                    duration: positionData?.duration ?? Duration.zero,
-                    position: positionData?.position ?? Duration.zero,
-                    bufferedPosition:
-                        positionData?.bufferedPosition ?? Duration.zero,
-                    onChangeEnd: _player.seek,
-                  );
-                },
-              ),
-            ],
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                DelayedDisplay(
+                  delay: Duration(seconds: 3),
+                  child: Text(
+                    widget.title,
+                    style: TextStyle(
+                        fontSize: getProportionateScreenWidth(13),
+                        color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                SizedBox(
+                  height: getProportionateScreenWidth(10),
+                ),
+                // Display play/pause button and volume/speed sliders.
+                ControlButtons(_player),
+                // Display seek bar. Using StreamBuilder, this widget rebuilds
+                // each time the position, buffered position or duration changes.
+                StreamBuilder<PositionData>(
+                  stream: _positionDataStream,
+                  builder: (context, snapshot) {
+                    final positionData = snapshot.data;
+                    return SeekBar(
+                      duration: positionData?.duration ?? Duration.zero,
+                      position: positionData?.position ?? Duration.zero,
+                      bufferedPosition:
+                          positionData?.bufferedPosition ?? Duration.zero,
+                      onChangeEnd: _player.seek,
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -140,103 +158,119 @@ class ControlButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ZoomIn(
-          duration: Duration(milliseconds: 1200),
-          child: Container(
-            width: getProportionateScreenWidth(350),
-            height: getProportionateScreenWidth(350),
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                    image: AssetImage("assets/images/deep_breath_logo2.png"))),
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Column(
+        children: [
+          ZoomIn(
+            duration: Duration(milliseconds: 1200),
+            child: Container(
+              width: getProportionateScreenWidth(350),
+              height: getProportionateScreenWidth(350),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image:
+                          AssetImage("assets/images/deep_breath_logo2.png"))),
+            ),
           ),
-        ),
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // Opens volume slider dialog
-            IconButton(
-              icon: Icon(Icons.volume_up),
-              onPressed: () {
-                showSliderDialog(
-                  context: context,
-                  title: "Adjust volume",
-                  divisions: 10,
-                  min: 0.0,
-                  max: 1.0,
-                  value: player.volume,
-                  stream: player.volumeStream,
-                  onChanged: player.setVolume,
-                );
-              },
-            ),
+          SizedBox(
+            height: getProportionateScreenWidth(20),
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Opens volume slider dialog
+                IconButton(
+                  icon: Icon(Icons.volume_up),
+                  onPressed: () {
+                    showSliderDialog(
+                      context: context,
+                      title: "Adjust volume",
+                      divisions: 10,
+                      min: 0.0,
+                      max: 1.0,
+                      value: player.volume,
+                      stream: player.volumeStream,
+                      onChanged: player.setVolume,
+                    );
+                  },
+                ),
+                SizedBox(
+                  width: getProportionateScreenWidth(20),
+                ),
 
-            /// This StreamBuilder rebuilds whenever the player state changes, which
-            /// includes the playing/paused state and also the
-            /// loading/buffering/ready state. Depending on the state we show the
-            /// appropriate button or loading indicator.
-            StreamBuilder<PlayerState>(
-              stream: player.playerStateStream,
-              builder: (context, snapshot) {
-                final playerState = snapshot.data;
-                final processingState = playerState?.processingState;
-                final playing = playerState?.playing;
-                if (processingState == ProcessingState.loading ||
-                    processingState == ProcessingState.buffering) {
-                  return Container(
-                    margin: EdgeInsets.all(8.0),
-                    width: 64.0,
-                    height: 64.0,
-                    child: CircularProgressIndicator(
-                      color: Colors.white,
-                    ),
-                  );
-                } else if (playing != true) {
-                  return IconButton(
-                    icon: Icon(Icons.play_arrow),
-                    iconSize: 64.0,
-                    onPressed: player.play,
-                  );
-                } else if (processingState != ProcessingState.completed) {
-                  return IconButton(
-                    icon: Icon(Icons.pause),
-                    iconSize: 64.0,
-                    onPressed: player.pause,
-                  );
-                } else {
-                  return IconButton(
-                    icon: Icon(Icons.replay),
-                    iconSize: 64.0,
-                    onPressed: () => player.seek(Duration.zero),
-                  );
-                }
-              },
+                /// This StreamBuilder rebuilds whenever the player state changes, which
+                /// includes the playing/paused state and also the
+                /// loading/buffering/ready state. Depending on the state we show the
+                /// appropriate button or loading indicator.
+                StreamBuilder<PlayerState>(
+                  stream: player.playerStateStream,
+                  builder: (context, snapshot) {
+                    final playerState = snapshot.data;
+                    final processingState = playerState?.processingState;
+                    final playing = playerState?.playing;
+                    if (processingState == ProcessingState.loading ||
+                        processingState == ProcessingState.buffering) {
+                      return Container(
+                        margin: EdgeInsets.all(8.0),
+                        width: 64.0,
+                        height: 64.0,
+                        child: CircularProgressIndicator(
+                          color: Colors.white,
+                        ),
+                      );
+                    } else if (playing != true) {
+                      return IconButton(
+                        icon: Icon(Icons.play_arrow),
+                        iconSize: 64.0,
+                        onPressed: player.play,
+                      );
+                    } else if (processingState != ProcessingState.completed) {
+                      return IconButton(
+                        icon: Icon(Icons.pause),
+                        iconSize: 64.0,
+                        onPressed: player.pause,
+                      );
+                    } else {
+                      return IconButton(
+                        icon: Icon(Icons.replay),
+                        iconSize: 64.0,
+                        onPressed: () => player.seek(Duration.zero),
+                      );
+                    }
+                  },
+                ),
+                SizedBox(
+                  width: getProportionateScreenWidth(20),
+                ),
+                // Opens speed slider dialog
+                StreamBuilder<double>(
+                  stream: player.speedStream,
+                  builder: (context, snapshot) => IconButton(
+                    icon: Text("${snapshot.data?.toStringAsFixed(1)}x",
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    onPressed: () {
+                      showSliderDialog(
+                        context: context,
+                        title: "Adjust speed",
+                        divisions: 10,
+                        min: 0.5,
+                        max: 1.5,
+                        value: player.speed,
+                        stream: player.speedStream,
+                        onChanged: player.setSpeed,
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
-            // Opens speed slider dialog
-            StreamBuilder<double>(
-              stream: player.speedStream,
-              builder: (context, snapshot) => IconButton(
-                icon: Text("${snapshot.data?.toStringAsFixed(1)}x",
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                onPressed: () {
-                  showSliderDialog(
-                    context: context,
-                    title: "Adjust speed",
-                    divisions: 10,
-                    min: 0.5,
-                    max: 1.5,
-                    value: player.speed,
-                    stream: player.speedStream,
-                    onChanged: player.setSpeed,
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }
