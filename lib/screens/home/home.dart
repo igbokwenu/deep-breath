@@ -3,6 +3,7 @@ import 'package:deep_breath/components/constants.dart';
 import 'package:deep_breath/components/size_config.dart';
 import 'package:deep_breath/models/models.dart';
 import 'package:deep_breath/screens/home/components/healing.dart';
+import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -123,6 +124,70 @@ class _HomeState extends State<Home> {
               scrollDirection: Axis.vertical,
               child: Column(
                 children: [
+                  DelayedDisplay(
+                    delay: Duration(seconds: 2),
+                    child: Pulse(
+                      delay: Duration(milliseconds: 2100),
+                      duration: Duration(milliseconds: 5000),
+                      infinite: true,
+                      child: GestureDetector(
+                        onTap: () {
+                          Alert(
+                            context: context,
+                            title: "Date: ",
+                            desc: "Topic: ",
+                            content: Column(
+                              children: [
+                                Text(
+                                  "Time: ",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize:
+                                          getProportionateScreenWidth(16)),
+                                ),
+                              ],
+                            ),
+                            buttons: [
+                              DialogButton(
+                                child: Text(
+                                  "Let me Join!",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize:
+                                          getProportionateScreenWidth(16)),
+                                ),
+                                onPressed: () => Navigator.pop(context),
+                                width: getProportionateScreenWidth(120),
+                                color: Colors.orange.withOpacity(0.7),
+                              )
+                            ],
+                          ).show();
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(
+                              top: getProportionateScreenWidth(15)),
+                          padding: EdgeInsets.only(
+                            left: getProportionateScreenWidth(10),
+                            right: getProportionateScreenWidth(10),
+                            top: getProportionateScreenWidth(2),
+                            bottom: getProportionateScreenWidth(2),
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.8),
+                            borderRadius: BorderRadius.circular(
+                              getProportionateScreenWidth(20),
+                            ),
+                          ),
+                          child: Text(
+                            "Join our Bible Study",
+                            style: TextStyle(
+                                fontSize: getProportionateScreenWidth(12),
+                                color: kPrimaryColor),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                   FadeInLeft(
                     duration: Duration(milliseconds: duration),
                     child: HomeItem(
@@ -191,8 +256,8 @@ class _HomeState extends State<Home> {
         Alert(
           context: context,
           type: AlertType.error,
-          title: "RFLUTTER ALERT",
-          desc: "Flutter is more awesome with RFlutter Alert.",
+          title: "Deep Breath",
+          desc: "Under development.",
           buttons: [
             DialogButton(
               child: Text(
