@@ -20,7 +20,12 @@ class MyApp extends StatefulWidget {
   final String url;
   final VoidCallback press;
   final String title;
-  MyApp({required this.url, required this.press, required this.title});
+  final String? author;
+  MyApp(
+      {required this.url,
+      required this.press,
+      required this.title,
+      this.author});
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -116,7 +121,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                   child: Text(
                     widget.title,
                     style: TextStyle(
-                        fontSize: getProportionateScreenWidth(13),
+                        fontSize: getProportionateScreenWidth(15),
                         color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
@@ -126,6 +131,20 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                 ),
                 // Display play/pause button and volume/speed sliders.
                 ControlButtons(_player),
+                SizedBox(
+                  height: getProportionateScreenWidth(15),
+                ),
+                DelayedDisplay(
+                  delay: Duration(seconds: 5),
+                  child: Text(
+                    "${authorNullCheck()}",
+                    style: TextStyle(
+                        fontSize: getProportionateScreenWidth(12),
+                        color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+
                 // Display seek bar. Using StreamBuilder, this widget rebuilds
                 // each time the position, buffered position or duration changes.
                 StreamBuilder<PositionData>(
@@ -147,6 +166,13 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         ),
       ),
     );
+  }
+
+  String authorNullCheck() {
+    if (widget.author == null) {
+      return "";
+    } else
+      return " ${widget.author}";
   }
 }
 
