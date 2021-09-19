@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Deep Breath',
+      theme: ThemeData(primarySwatch: Colors.orange),
       // home: Home(),
       initialRoute: "/",
       routes: {

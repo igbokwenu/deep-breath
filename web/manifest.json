@@ -1,11 +1,11 @@
 {
-    "name": "deep_breath",
-    "short_name": "deep_breath",
+    "name": "Deep Breath",
+    "short_name": "Deep Breath",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Use Scriptures to overcome sickness, anxiety, and everything in-between.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -131,15 +131,13 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                 ),
                 // Display play/pause button and volume/speed sliders.
                 ControlButtons(_player),
-                SizedBox(
-                  height: getProportionateScreenWidth(15),
-                ),
+                sizedBoxNullCheck(),
                 DelayedDisplay(
                   delay: Duration(seconds: 5),
                   child: Text(
                     "${authorNullCheck()}",
                     style: TextStyle(
-                        fontSize: getProportionateScreenWidth(12),
+                        fontSize: getProportionateScreenWidth(13),
                         color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
@@ -173,6 +171,15 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       return "";
     } else
       return " ${widget.author}";
+  }
+
+  SizedBox sizedBoxNullCheck() {
+    if (widget.author == null) {
+      return SizedBox();
+    } else
+      return SizedBox(
+        height: getProportionateScreenWidth(15),
+      );
   }
 }
 
