@@ -3,6 +3,7 @@ import 'package:deep_breath/components/constants.dart';
 import 'package:deep_breath/components/size_config.dart';
 import 'package:deep_breath/models/models.dart';
 import 'package:deep_breath/screens/home/components/healing.dart';
+import 'package:deep_breath/screens/home/components/faith.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -208,9 +209,9 @@ class _HomeState extends State<Home> {
                   FadeInDown(
                     duration: Duration(milliseconds: duration),
                     child: HomeItem(
-                      subText: 'fear',
-                      image: 'assets/images/falling_square.gif',
-                      press: () => Get.off(() => AnxietyScreen()),
+                      subText: 'doubt',
+                      image: 'assets/images/9D98EB85-4321-4835-9FF0-822278A4C101.gif',
+                      press: () => Get.off(() => FaithScreen()),
                     ),
                   ),
                   SizedBox(
