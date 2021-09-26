@@ -78,12 +78,14 @@ class HomeItem extends StatelessWidget {
     required this.subText,
     required this.press,
     this.backgroundColor,
+    this.titleText,
   }) : super(key: key);
 
   final String image;
   final String subText;
   final VoidCallback press;
   final Color? backgroundColor;
+  final String? titleText;
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +132,7 @@ class HomeItem extends StatelessWidget {
                         style: TextStyle(color: kWhiteColor),
                         children: [
                           TextSpan(
-                            text: "overcome\n",
+                            text: titleText ?? "overcome",
                             style: bannerTextStyle(),
                           ),
                           TextSpan(
