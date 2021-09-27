@@ -89,7 +89,7 @@ class _HomeState extends State<Home> {
                       Padding(
                         padding: EdgeInsets.only(right: 10),
                         child: Icon(
-                          Icons.remove_circle_outline,
+                          Icons.block_outlined,
                           color: kPrimaryColor,
                         ),
                       ),
@@ -105,7 +105,7 @@ class _HomeState extends State<Home> {
                       Padding(
                         padding: EdgeInsets.only(right: 10),
                         child: Icon(
-                          Icons.contact_mail_outlined,
+                          Icons.sports_kabaddi_outlined,
                           color: kPrimaryColor,
                         ),
                       ),
