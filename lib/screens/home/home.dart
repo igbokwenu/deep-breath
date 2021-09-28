@@ -193,7 +193,7 @@ class _HomeState extends State<Home> {
                     duration: Duration(milliseconds: duration),
                     child: HomeItem(
                       subText: 'sickness',
-                      image: 'assets/images/sickness.gif',
+                      image: 'assets/images/milk-bottle-baby-bottle-sick.gif',
                       press: () => Get.off(() => HealingScreen()),
                     ),
                   ),
