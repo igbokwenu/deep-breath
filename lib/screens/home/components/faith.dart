@@ -40,9 +40,9 @@ class FaithScreen extends StatelessWidget {
     const String i = "Repentance and obedience";
     const String iUrl =
         "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FBuild%20your%20faith%2Fi_faith_the_need_for_repentance_and_obedience.mp3?alt=media&token=1e7a28e5-794e-4f56-aa18-a3a7221cc30e";
-     //const String j = "Our testimony";
-    //const String jUrl =
-     //   "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FHealing%2F10.%20Our%20testimony.mp3?alt=media&token=f226f9d7-dab6-48c6-bab7-7f6385af3d1d";
+     const String j = "Repentance and obedience part 2";
+    const String jUrl =
+        "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FBuild%20your%20faith%2Fj_faith_the_need_for_repentance_and_obedience_2.mp3?alt=media&token=63393940-b264-45e9-97f8-9340c4135fb6";
     //const String k = "Healing and deliverance";
     //const String kUrl =
      //   "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FHealing%2F11.%20Healing%20and%20Deliverance.mp3?alt=media&token=85c7cb7f-100b-4052-b326-29c5be3ad95a";
@@ -198,30 +198,30 @@ class FaithScreen extends StatelessWidget {
                             ));
                       },
                     ),
-                    ScriptureList(
-                      text: k,
-                      press: () {
-                        Get.to(() => MyApp(
-                              url: kUrl,
-                              press: press,
-                              title: k,
-                              author: smith,
-                            ));
-                      },
-                    ),
-                    ScriptureList(
-                      text: l,
-                      press: () {
-                        Get.to(
-                          MyApp(
-                            url: lUrl,
-                            press: press,
-                            title: l,
-                            author: smith,
-                          ),
-                        );
-                      },
-                    ),
+                  //  ScriptureList(
+                   //   text: k,
+                     // press: () {
+                       // Get.to(() => MyApp(
+                      //        url: kUrl,
+                       //       press: press,
+                         //     title: k,
+                        //      author: smith,
+                     //       ));
+                     // },
+                   // ),
+                   // ScriptureList(
+                     // text: l,
+                     // press: () {
+                     //   Get.to(
+                        //  MyApp(
+                        //    url: lUrl,
+                         //   press: press,
+                          //  title: l,
+                         //   author: smith,
+                       //   ),
+                     //   );
+                   //   },
+                  //  ),
                   ],
                 ),
               ),
