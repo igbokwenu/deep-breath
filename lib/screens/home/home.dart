@@ -287,6 +287,16 @@ class _HomeState extends State<Home> {
               fontSize: getProportionateScreenWidth(15),
             ),
           ),
+          content: Column(
+            children: [
+              Text(
+                "Contact Alan & Holly: ",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: getProportionateScreenWidth(16)),
+              ),
+            ],
+          ),
           buttons: [
             DialogButton(
               child: Text(
