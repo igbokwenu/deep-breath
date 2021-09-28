@@ -1,4 +1,4 @@
-import 'package:deep_breath/screens/anxiety.dart';
+import 'package:deep_breath/screens/home/components/anxiety.dart';
 import 'package:deep_breath/screens/home/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import '../anxiety.dart';
+import 'components/anxiety.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -211,7 +211,8 @@ class _HomeState extends State<Home> {
                     child: HomeItem(
                       subText: 'faith',
                       titleText: "build",
-                      image: 'assets/images/9D98EB85-4321-4835-9FF0-822278A4C101.gif',
+                      image:
+                          'assets/images/9D98EB85-4321-4835-9FF0-822278A4C101.gif',
                       press: () => Get.off(() => FaithScreen()),
                     ),
                   ),
