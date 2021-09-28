@@ -210,7 +210,7 @@ class _HomeState extends State<Home> {
                     duration: Duration(milliseconds: duration),
                     child: HomeItem(
                       subText: 'faith',
-                      titleText: "build",
+                      titleText: "build\n",
                       image:
                           'assets/images/9D98EB85-4321-4835-9FF0-822278A4C101.gif',
                       press: () => Get.off(() => FaithScreen()),

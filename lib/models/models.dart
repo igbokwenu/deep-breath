@@ -132,7 +132,7 @@ class HomeItem extends StatelessWidget {
                         style: TextStyle(color: kWhiteColor),
                         children: [
                           TextSpan(
-                            text: titleText ?? "overcome",
+                            text: titleText ?? "overcome\n",
                             style: bannerTextStyle(),
                           ),
                           TextSpan(
