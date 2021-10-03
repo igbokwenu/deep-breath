@@ -4,6 +4,7 @@ import 'package:deep_breath/components/size_config.dart';
 import 'package:deep_breath/models/models.dart';
 import 'package:deep_breath/screens/home/components/healing.dart';
 import 'package:deep_breath/screens/home/components/faith.dart';
+import 'package:deep_breath/screens/home/components/salvation.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
