@@ -13,25 +13,25 @@ class SalvationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String a = "Ask in faith";
+    const String a = "How to get saved";
     const String aUrl =
         "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FBuild%20your%20faith%2Fa_faith_ask_in_faith.mp3?alt=media&token=c241389c-8acb-4cfc-b178-006b2f4a98c4";
-    const String b = "Discard your doubts";
+    const String b = "Only one path to eternal life";
     const String bUrl =
         "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FBuild%20your%20faith%2Fb_discard_your_doubt.mp3?alt=media&token=a1cc99b2-9b1b-4e89-9283-d5a470219491";
-    const String c = "Doubt can hinder your miracle";
+    const String c = "Are you alive?";
     const String cUrl =
         "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FBuild%20your%20faith%2Fc_faith_doubt_can_hinder_your_miracle.mp3?alt=media&token=d7c56f4c-48c0-49e1-b09c-e5bb91038592";
-    const String d = "Discover your authority";
+    const String d = "How does salvation work?";
     const String dUrl =
         "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FBuild%20your%20faith%2Fd.%20faith.discover_your_authourity.mp3?alt=media&token=17aa2d51-c6e9-43b4-9e70-deeb78c6ddef";
-    const String e = "Jesus and healing";
+    const String e = "Why do I need to be saved?";
     const String eUrl =
         "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FBuild%20your%20faith%2Fe.%20faith.jesus_and_healing.mp3?alt=media&token=ecad3c44-dd67-4ebc-b584-8531e1310075";
-    const String f = "Jesus heals";
+    const String f = "What you must do to be saved";
     const String fUrl =
         "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FBuild%20your%20faith%2Ff_faith_jesus_heals.mp3?alt=media&token=5005e274-bd5f-4cf2-9a8a-5b722fd49394";
-    const String g = "Jesus heals (Part 2)";
+    const String g = "He's got you covered";
     const String gUrl =
         "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FBuild%20your%20faith%2Fg_faith_jesus_heals_part_2.mp3?alt=media&token=9cad01cb-264b-4130-bdd8-db913bf80c22";
     //const String h = "God is still the same today";
