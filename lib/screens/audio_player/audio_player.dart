@@ -1,7 +1,3 @@
-// This is a minimal example demonstrating a play/pause button and a seek bar.
-// More advanced examples demonstrating other features can be found in the same
-// directory as this example in the GitHub repository.
-
 import 'package:animate_do/animate_do.dart';
 import 'package:audio_session/audio_session.dart';
 import 'package:deep_breath/components/constants.dart';
@@ -157,6 +153,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                     );
                   },
                 ),
+                //TODO: Add ad banner here.  It should appear below the seekbar. I think you can make the ad banner appear at the bottom by using an expanded widget.
               ],
             ),
           ),
