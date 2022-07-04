@@ -136,7 +136,7 @@ class _HomeState extends State<Home> {
                         onTap: () {
                           Alert(
                             context: context,
-                            title: "Date: ",
+                            title: "Date: Coming Soon",
                             desc: "Topic: ",
                             content: Column(
                               children: [
@@ -212,8 +212,7 @@ class _HomeState extends State<Home> {
                     child: HomeItem(
                       subText: 'faith',
                       titleText: "build\n",
-                      image:
-                          'assets/images/believe.gif',
+                      image: 'assets/images/believe.gif',
                       press: () => Get.off(() => FaithScreen()),
                     ),
                   ),
