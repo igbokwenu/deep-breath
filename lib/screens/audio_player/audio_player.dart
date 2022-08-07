@@ -5,7 +5,6 @@ import 'package:deep_breath/components/size_config.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart' as Getx;
 import 'package:just_audio/just_audio.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -174,7 +173,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       return SizedBox();
     } else
       return SizedBox(
-        height: getProportionateScreenWidth(15),
+        height: getProportionateScreenWidth(2),
       );
   }
 }
@@ -194,8 +193,8 @@ class ControlButtons extends StatelessWidget {
           ZoomIn(
             duration: Duration(milliseconds: 1200),
             child: Container(
-              width: getProportionateScreenWidth(350),
-              height: getProportionateScreenWidth(350),
+              width: getProportionateScreenWidth(300),
+              height: getProportionateScreenWidth(300),
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
@@ -204,7 +203,7 @@ class ControlButtons extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: getProportionateScreenWidth(20),
+            height: getProportionateScreenWidth(2),
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,

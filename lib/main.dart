@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Deep Breath',
+      title: 'Deep Breath ',
       theme: ThemeData(primarySwatch: Colors.orange),
       // home: Home(),
       initialRoute: "/",
