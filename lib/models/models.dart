@@ -71,6 +71,98 @@ class HomeTopBanner extends StatelessWidget {
   }
 }
 
+class DesktopHomeItem extends StatelessWidget {
+  const DesktopHomeItem({
+    Key? key,
+    required this.image,
+    required this.subText,
+    required this.press,
+    this.backgroundColor,
+    this.titleText,
+  }) : super(key: key);
+
+  final String image;
+  final String subText;
+  final VoidCallback press;
+  final Color? backgroundColor;
+  final String? titleText;
+
+  @override
+  Widget build(BuildContext context) {
+    const double imageSize = 150;
+    return Padding(
+      padding: EdgeInsets.only(
+        left: getProportionateScreenWidth(15),
+        right: getProportionateScreenWidth(15),
+        top: getProportionateScreenWidth(20),
+      ),
+      child: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+                color: backgroundColor,
+                //shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.circular(20)),
+            width: getProportionateScreenWidth(imageSize),
+            height: getProportionateScreenWidth(imageSize),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(
+                      image,
+                      width: getProportionateScreenWidth(imageSize),
+                      height: getProportionateScreenWidth(imageSize),
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: recommendedLinearGradient(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: getProportionateScreenWidth(15),
+                        vertical: getProportionateScreenWidth(10)),
+                    child: Text.rich(
+                      TextSpan(
+                        style: TextStyle(color: kWhiteColor),
+                        children: [
+                          TextSpan(
+                            text: titleText ?? "overcome\n",
+                            style: bannerTextStyle(),
+                          ),
+                          TextSpan(
+                            text: subText,
+                            style: bannerSubTextStyle(),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Positioned.fill(
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                splashColor: kPrimaryColor.withOpacity(0.6),
+                borderRadius: BorderRadius.circular(20),
+                onTap: press,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
 class HomeItem extends StatelessWidget {
   const HomeItem({
     Key? key,
