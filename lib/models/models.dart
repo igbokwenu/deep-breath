@@ -89,7 +89,7 @@ class DesktopHomeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double imageSize = 150;
+    const double imageSize = 100;
     return Padding(
       padding: EdgeInsets.only(
         left: getProportionateScreenWidth(15),

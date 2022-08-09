@@ -51,7 +51,7 @@ class _DesktopHomeState extends State<DesktopHome> {
 
   @override
   Widget build(BuildContext context) {
-    final int duration = 900;
+    final int duration = 2000;
     // You have to call it on your starting screen
     SizeConfig().init(context);
     return Container(
@@ -66,199 +66,135 @@ class _DesktopHomeState extends State<DesktopHome> {
             ),
           ),
           actions: [
-            PopupMenuButton<int>(
-              onSelected: (item) => onSelected(context, item),
-              itemBuilder: (context) => [
-                PopupMenuItem<int>(
-                  value: 0,
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: Icon(
-                          Icons.info_outline,
-                          color: kPrimaryColor,
-                        ),
-                      ),
-                      Text("About"),
-                    ],
-                  ),
-                ),
-                PopupMenuItem<int>(
-                  value: 1,
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: Icon(
-                          Icons.block_outlined,
-                          color: kPrimaryColor,
-                        ),
-                      ),
-                      Text("Remove Ads"),
-                    ],
-                  ),
-                ),
-                PopupMenuDivider(),
-                PopupMenuItem<int>(
-                  value: 2,
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: Icon(
-                          Icons.sports_kabaddi_outlined,
-                          color: kPrimaryColor,
-                        ),
-                      ),
-                      Text("Reach Out"),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            popupMenuButton(context),
           ],
           backgroundColor: Colors.transparent,
         ),
         backgroundColor: Colors.transparent,
         body: SafeArea(
           child: Center(
-            child: Column(
-              children: [
-                DelayedDisplay(
-                  delay: Duration(seconds: 2),
-                  child: Pulse(
-                    delay: Duration(milliseconds: 2100),
-                    duration: Duration(milliseconds: 5000),
-                    infinite: true,
-                    child: GestureDetector(
-                      onTap: () {
-                        Alert(
-                          context: context,
-                          title: "Date: Coming Soon",
-                          desc: "Topic: ",
-                          content: Column(
-                            children: [
-                              Text(
-                                "Time: ",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: getProportionateScreenWidth(16)),
-                              ),
-                            ],
-                          ),
-                          buttons: [
-                            DialogButton(
-                              child: Text(
-                                "Let me Join!",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: getProportionateScreenWidth(16)),
-                              ),
-                              onPressed: () => Navigator.pop(context),
-                              width: getProportionateScreenWidth(120),
-                              color: Colors.orange.withOpacity(0.7),
-                            )
-                          ],
-                        ).show();
-                      },
-                      child: Container(
-                        margin: EdgeInsets.only(
-                            top: getProportionateScreenWidth(15)),
-                        padding: EdgeInsets.only(
-                          left: getProportionateScreenWidth(10),
-                          right: getProportionateScreenWidth(10),
-                          top: getProportionateScreenWidth(2),
-                          bottom: getProportionateScreenWidth(2),
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.8),
-                          borderRadius: BorderRadius.circular(
-                            getProportionateScreenWidth(20),
-                          ),
-                        ),
-                        child: Text(
-                          "Join our Bible Study",
-                          style: TextStyle(
-                              fontSize: getProportionateScreenWidth(12),
-                              color: kPrimaryColor),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      FadeInLeft(
-                        duration: Duration(milliseconds: duration),
-                        child: DesktopHomeItem(
-                          subText: 'sickness',
-                          image:
-                              'assets/images/milk-bottle-baby-bottle-sick.gif',
-                          press: () => Get.off(() => HealingScreen()),
-                        ),
-                      ),
-                      FadeInRight(
-                        duration: Duration(milliseconds: duration),
-                        child: DesktopHomeItem(
-                          subText: 'anxiety',
-                          image: 'assets/images/anxiety_square.gif',
-                          press: () => Get.off(() => AnxietyScreen()),
-                          backgroundColor: Colors.red,
-                        ),
-                      ),
-                      FadeInDown(
-                        duration: Duration(milliseconds: duration),
-                        child: DesktopHomeItem(
-                          subText: 'faith',
-                          titleText: "build\n",
-                          image: 'assets/images/believe.gif',
-                          press: () => Get.off(() => FaithScreen()),
-                        ),
-                      ),
-                      FadeInDown(
-                        duration: Duration(milliseconds: duration),
-                        child: DesktopHomeItem(
-                          subText: 'saved',
-                          titleText: "get\n",
-                          image:
-                              'assets/images/9D98EB85-4321-4835-9FF0-822278A4C101.gif',
-                          press: () => Get.off(() => SalvationScreen()),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
+            child: AspectRatio(
+              aspectRatio: 16 / 14,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
                   children: [
-                    FadeInDown(
-                      duration: Duration(milliseconds: duration),
-                      child: DesktopHomeItem(
-                        subText: 'faith',
-                        titleText: "build\n",
-                        image: 'assets/images/believe.gif',
-                        press: () => Get.off(() => FaithScreen()),
+                    BibleStudyButton(),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          FadeInLeft(
+                            duration: Duration(milliseconds: duration),
+                            child: DesktopHomeItem(
+                              subText: 'sickness',
+                              image:
+                                  'assets/images/milk-bottle-baby-bottle-sick.gif',
+                              press: () => Get.off(() => HealingScreen()),
+                            ),
+                          ),
+                          FadeInRight(
+                            duration: Duration(milliseconds: duration),
+                            child: DesktopHomeItem(
+                              subText: 'anxiety',
+                              image: 'assets/images/anxiety_square.gif',
+                              press: () => Get.off(() => AnxietyScreen()),
+                              backgroundColor: Colors.red,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    FadeInDown(
-                      duration: Duration(milliseconds: duration),
-                      child: DesktopHomeItem(
-                        subText: 'saved',
-                        titleText: "get\n",
-                        image:
-                            'assets/images/9D98EB85-4321-4835-9FF0-822278A4C101.gif',
-                        press: () => Get.off(() => SalvationScreen()),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          FadeInDown(
+                            duration: Duration(milliseconds: duration),
+                            child: DesktopHomeItem(
+                              subText: 'faith',
+                              titleText: "build\n",
+                              image: 'assets/images/believe.gif',
+                              press: () => Get.off(() => FaithScreen()),
+                            ),
+                          ),
+                          FadeInDown(
+                            duration: Duration(milliseconds: duration),
+                            child: DesktopHomeItem(
+                              subText: 'saved',
+                              titleText: "get\n",
+                              image:
+                                  'assets/images/9D98EB85-4321-4835-9FF0-822278A4C101.gif',
+                              press: () => Get.off(() => SalvationScreen()),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
+                    SizedBox(
+                      height: getProportionateScreenWidth(50),
+                    )
                   ],
                 ),
-              ],
+              ),
             ),
           ),
         ),
       ),
+    );
+  }
+
+  PopupMenuButton<int> popupMenuButton(BuildContext context) {
+    return PopupMenuButton<int>(
+      onSelected: (item) => onSelected(context, item),
+      itemBuilder: (context) => [
+        PopupMenuItem<int>(
+          value: 0,
+          child: Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(right: 10),
+                child: Icon(
+                  Icons.info_outline,
+                  color: kPrimaryColor,
+                ),
+              ),
+              Text("About"),
+            ],
+          ),
+        ),
+        PopupMenuItem<int>(
+          value: 1,
+          child: Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(right: 10),
+                child: Icon(
+                  Icons.block_outlined,
+                  color: kPrimaryColor,
+                ),
+              ),
+              Text("Remove Ads"),
+            ],
+          ),
+        ),
+        PopupMenuDivider(),
+        PopupMenuItem<int>(
+          value: 2,
+          child: Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(right: 10),
+                child: Icon(
+                  Icons.sports_kabaddi_outlined,
+                  color: kPrimaryColor,
+                ),
+              ),
+              Text("Reach Out"),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
@@ -347,5 +283,76 @@ class _DesktopHomeState extends State<DesktopHome> {
         ).show();
         break;
     }
+  }
+}
+
+class BibleStudyButton extends StatelessWidget {
+  const BibleStudyButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DelayedDisplay(
+      delay: Duration(seconds: 3),
+      child: Pulse(
+        delay: Duration(milliseconds: 2100),
+        duration: Duration(milliseconds: 5000),
+        infinite: true,
+        child: GestureDetector(
+          onTap: () {
+            Alert(
+              context: context,
+              title: "Date: Coming Soon",
+              desc: "Topic: ",
+              content: Column(
+                children: [
+                  Text(
+                    "Time: ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: getProportionateScreenWidth(16)),
+                  ),
+                ],
+              ),
+              buttons: [
+                DialogButton(
+                  child: Text(
+                    "Let me Join!",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: getProportionateScreenWidth(16)),
+                  ),
+                  onPressed: () => Navigator.pop(context),
+                  width: getProportionateScreenWidth(120),
+                  color: Colors.orange.withOpacity(0.7),
+                )
+              ],
+            ).show();
+          },
+          child: Container(
+            margin: EdgeInsets.only(top: getProportionateScreenWidth(15)),
+            padding: EdgeInsets.only(
+              left: getProportionateScreenWidth(10),
+              right: getProportionateScreenWidth(10),
+              top: getProportionateScreenWidth(2),
+              bottom: getProportionateScreenWidth(2),
+            ),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(
+                getProportionateScreenWidth(20),
+              ),
+            ),
+            child: Text(
+              "Join our Bible Study",
+              style: TextStyle(
+                  fontSize: getProportionateScreenWidth(12),
+                  color: kPrimaryColor),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
