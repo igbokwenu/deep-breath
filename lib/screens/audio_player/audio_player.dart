@@ -91,14 +91,14 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          toolbarHeight: getProportionateScreenWidth(45),
+          toolbarHeight: getProportionateScreenWidth(20),
           elevation: 0,
           backgroundColor: Colors.transparent,
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back_ios,
               color: Colors.blueGrey,
-              size: getProportionateScreenWidth(20),
+              size: getProportionateScreenWidth(10),
             ),
             onPressed: widget.press,
           ),
@@ -115,7 +115,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                   child: Text(
                     widget.title,
                     style: TextStyle(
-                        fontSize: getProportionateScreenWidth(15),
+                        fontSize: getProportionateScreenWidth(9),
                         color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
@@ -131,7 +131,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                   child: Text(
                     "${authorNullCheck()}",
                     style: TextStyle(
-                        fontSize: getProportionateScreenWidth(13),
+                        fontSize: getProportionateScreenWidth(9),
                         color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
@@ -188,7 +188,7 @@ class ControlButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     final currentWidth = MediaQuery.of(context).size.width;
     const double mobileAudioImage = 250;
-    const double desktopAudioImage = 170;
+    const double desktopAudioImage = 100;
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Column(
