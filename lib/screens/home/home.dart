@@ -193,7 +193,7 @@ class _MobileHomeState extends State<MobileHome> {
                   ),
                   FadeInLeft(
                     duration: Duration(milliseconds: duration),
-                    child: HomeItem(
+                    child: MobileHomeItem(
                       subText: 'sickness',
                       image: 'assets/images/milk-bottle-baby-bottle-sick.gif',
                       press: () => Get.off(() => HealingScreen()),
@@ -201,7 +201,7 @@ class _MobileHomeState extends State<MobileHome> {
                   ),
                   FadeInRight(
                     duration: Duration(milliseconds: duration),
-                    child: HomeItem(
+                    child: MobileHomeItem(
                       subText: 'anxiety',
                       image: 'assets/images/anxiety_square.gif',
                       press: () => Get.off(() => AnxietyScreen()),
@@ -210,7 +210,7 @@ class _MobileHomeState extends State<MobileHome> {
                   ),
                   FadeInDown(
                     duration: Duration(milliseconds: duration),
-                    child: HomeItem(
+                    child: MobileHomeItem(
                       subText: 'faith',
                       titleText: "build\n",
                       image: 'assets/images/believe.gif',
@@ -219,7 +219,7 @@ class _MobileHomeState extends State<MobileHome> {
                   ),
                   FadeInDown(
                     duration: Duration(milliseconds: duration),
-                    child: HomeItem(
+                    child: MobileHomeItem(
                       subText: 'saved',
                       titleText: "get\n",
                       image:

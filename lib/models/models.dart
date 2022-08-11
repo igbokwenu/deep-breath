@@ -9,8 +9,11 @@ class HomeTopBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double bannerWidth = 350;
-    const double bannerHeight = 150;
+    const double bannerMobileWidth = 350;
+    const double bannerMobileHeight = 150;
+    const double bannerDesktopWidth = 120;
+    const double bannerDesktopHeight = 40;
+    final currentWidth = MediaQuery.of(context).size.width;
     return Padding(
       padding: EdgeInsets.only(
           left: getProportionateScreenWidth(15),
@@ -20,16 +23,20 @@ class HomeTopBanner extends StatelessWidget {
       child: Stack(
         children: [
           SizedBox(
-            width: getProportionateScreenWidth(bannerWidth),
-            height: getProportionateScreenWidth(bannerHeight),
+            width: getProportionateScreenWidth(currentWidth < mobileWidth
+                ? bannerMobileWidth
+                : bannerDesktopWidth),
+            height: getProportionateScreenWidth(currentWidth < mobileWidth
+                ? bannerMobileHeight
+                : bannerDesktopHeight),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Stack(
                 children: [
                   Image.asset(
                     'assets/images/candle_bible.jpeg',
-                    width: getProportionateScreenWidth(bannerWidth),
-                    height: getProportionateScreenWidth(bannerHeight),
+                    width: getProportionateScreenWidth(bannerMobileWidth),
+                    height: getProportionateScreenWidth(bannerMobileHeight),
                     fit: BoxFit.cover,
                   ),
                   Container(
@@ -163,8 +170,8 @@ class DesktopHomeItem extends StatelessWidget {
   }
 }
 
-class HomeItem extends StatelessWidget {
-  const HomeItem({
+class MobileHomeItem extends StatelessWidget {
+  const MobileHomeItem({
     Key? key,
     required this.image,
     required this.subText,
@@ -269,9 +276,14 @@ class ScriptureList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentWidth = MediaQuery.of(context).size.width;
+    const double mobileListWidth = 350;
+    const double mobileListHeight = 70;
+    const double desktopListWidth = 300;
+    const double desktopListHeight = 30;
     const double radius = 10;
     return Padding(
-      padding: EdgeInsets.only(bottom: getProportionateScreenWidth(10)),
+      padding: EdgeInsets.only(top: getProportionateScreenWidth(10)),
       child: Stack(
         children: [
           Container(
@@ -284,8 +296,12 @@ class ScriptureList extends StatelessWidget {
                   width: getProportionateScreenWidth(3), color: Colors.white),
             ),
             alignment: Alignment.center,
-            width: getProportionateScreenWidth(350),
-            height: getProportionateScreenWidth(70),
+            width: getProportionateScreenWidth(currentWidth < mobileWidth
+                ? mobileListWidth
+                : desktopListWidth),
+            height: getProportionateScreenWidth(currentWidth < mobileWidth
+                ? mobileListHeight
+                : desktopListHeight),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -303,7 +319,8 @@ class ScriptureList extends StatelessWidget {
                 Text(
                   text,
                   style: TextStyle(
-                      fontSize: getProportionateScreenWidth(15),
+                      fontSize: getProportionateScreenWidth(
+                          currentWidth < mobileWidth ? 15 : 10),
                       color: Colors.white),
                 ),
               ],

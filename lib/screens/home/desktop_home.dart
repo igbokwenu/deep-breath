@@ -51,7 +51,7 @@ class _DesktopHomeState extends State<DesktopHome> {
 
   @override
   Widget build(BuildContext context) {
-    final int duration = 2000;
+    final int duration = 1200;
     // You have to call it on your starting screen
     SizeConfig().init(context);
     return Container(
@@ -62,7 +62,7 @@ class _DesktopHomeState extends State<DesktopHome> {
           title: Center(
             child: Text(
               "Deep Breath",
-              style: TextStyle(fontSize: getProportionateScreenWidth(20)),
+              style: TextStyle(fontSize: getProportionateScreenWidth(12)),
             ),
           ),
           actions: [
@@ -73,69 +73,66 @@ class _DesktopHomeState extends State<DesktopHome> {
         backgroundColor: Colors.transparent,
         body: SafeArea(
           child: Center(
-            child: AspectRatio(
-              aspectRatio: 16 / 14,
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Column(
-                  children: [
-                    BibleStudyButton(),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          FadeInLeft(
-                            duration: Duration(milliseconds: duration),
-                            child: DesktopHomeItem(
-                              subText: 'sickness',
-                              image:
-                                  'assets/images/milk-bottle-baby-bottle-sick.gif',
-                              press: () => Get.off(() => HealingScreen()),
-                            ),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: [
+                  BibleStudyButton(),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        FadeInLeft(
+                          duration: Duration(milliseconds: duration),
+                          child: DesktopHomeItem(
+                            subText: 'sickness',
+                            image:
+                                'assets/images/milk-bottle-baby-bottle-sick.gif',
+                            press: () => Get.off(() => HealingScreen()),
                           ),
-                          FadeInRight(
-                            duration: Duration(milliseconds: duration),
-                            child: DesktopHomeItem(
-                              subText: 'anxiety',
-                              image: 'assets/images/anxiety_square.gif',
-                              press: () => Get.off(() => AnxietyScreen()),
-                              backgroundColor: Colors.red,
-                            ),
+                        ),
+                        FadeInRight(
+                          duration: Duration(milliseconds: duration),
+                          child: DesktopHomeItem(
+                            subText: 'anxiety',
+                            image: 'assets/images/anxiety_square.gif',
+                            press: () => Get.off(() => AnxietyScreen()),
+                            backgroundColor: Colors.red,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          FadeInDown(
-                            duration: Duration(milliseconds: duration),
-                            child: DesktopHomeItem(
-                              subText: 'faith',
-                              titleText: "build\n",
-                              image: 'assets/images/believe.gif',
-                              press: () => Get.off(() => FaithScreen()),
-                            ),
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        FadeInDown(
+                          duration: Duration(milliseconds: duration),
+                          child: DesktopHomeItem(
+                            subText: 'faith',
+                            titleText: "build\n",
+                            image: 'assets/images/believe.gif',
+                            press: () => Get.off(() => FaithScreen()),
                           ),
-                          FadeInDown(
-                            duration: Duration(milliseconds: duration),
-                            child: DesktopHomeItem(
-                              subText: 'saved',
-                              titleText: "get\n",
-                              image:
-                                  'assets/images/9D98EB85-4321-4835-9FF0-822278A4C101.gif',
-                              press: () => Get.off(() => SalvationScreen()),
-                            ),
+                        ),
+                        FadeInDown(
+                          duration: Duration(milliseconds: duration),
+                          child: DesktopHomeItem(
+                            subText: 'saved',
+                            titleText: "get\n",
+                            image:
+                                'assets/images/9D98EB85-4321-4835-9FF0-822278A4C101.gif',
+                            press: () => Get.off(() => SalvationScreen()),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      height: getProportionateScreenWidth(50),
-                    )
-                  ],
-                ),
+                  ),
+                  SizedBox(
+                    height: getProportionateScreenWidth(50),
+                  )
+                ],
               ),
             ),
           ),
@@ -294,7 +291,7 @@ class BibleStudyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DelayedDisplay(
-      delay: Duration(seconds: 3),
+      delay: Duration(milliseconds: 1700),
       child: Pulse(
         delay: Duration(milliseconds: 2100),
         duration: Duration(milliseconds: 5000),
@@ -303,7 +300,7 @@ class BibleStudyButton extends StatelessWidget {
           onTap: () {
             Alert(
               context: context,
-              title: "Date: Coming Soon",
+              title: "Coming Soon",
               desc: "Topic: ",
               content: Column(
                 children: [
@@ -311,7 +308,7 @@ class BibleStudyButton extends StatelessWidget {
                     "Time: ",
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: getProportionateScreenWidth(16)),
+                        fontSize: getProportionateScreenWidth(10)),
                   ),
                 ],
               ),
@@ -321,7 +318,7 @@ class BibleStudyButton extends StatelessWidget {
                     "Let me Join!",
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: getProportionateScreenWidth(16)),
+                        fontSize: getProportionateScreenWidth(10)),
                   ),
                   onPressed: () => Navigator.pop(context),
                   width: getProportionateScreenWidth(120),
@@ -347,7 +344,7 @@ class BibleStudyButton extends StatelessWidget {
             child: Text(
               "Join our Bible Study",
               style: TextStyle(
-                  fontSize: getProportionateScreenWidth(12),
+                  fontSize: getProportionateScreenWidth(8),
                   color: kPrimaryColor),
             ),
           ),

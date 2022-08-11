@@ -1,6 +1,8 @@
 import 'package:deep_breath/components/size_config.dart';
 import 'package:flutter/material.dart';
 
+//final currentWidth = MediaQuery.of(context).size.width;
+const mobileWidth = 550;
 const kPrimaryColor = Color(0xFFFF7643);
 const kPrimaryColorB = Color(0xFFFFA53E);
 const kPrimaryLightColor = Color(0xFFFFECDF);
@@ -59,7 +61,7 @@ TextStyle bannerSubTextStyle() {
       color: kWhiteColor,
       fontWeight: FontWeight.bold,
       backgroundColor: kPrimaryColor.withOpacity(0.5),
-      fontSize: getProportionateScreenWidth(20));
+      fontSize: getProportionateScreenWidth(14));
 }
 
 TextStyle bannerTextStyle() {

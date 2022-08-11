@@ -58,14 +58,14 @@ class AnxietyScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          toolbarHeight: getProportionateScreenWidth(45),
+          toolbarHeight: getProportionateScreenWidth(20),
           elevation: 0,
           backgroundColor: Colors.transparent,
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back_ios,
               color: Colors.blueGrey,
-              size: getProportionateScreenWidth(20),
+              size: getProportionateScreenWidth(10),
             ),
             onPressed: () {
               Get.off(() => ResponsiveHome());
@@ -76,6 +76,7 @@ class AnxietyScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: AnimationLimiter(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: AnimationConfiguration.toStaggeredList(
                   duration: const Duration(milliseconds: 600),
                   childAnimationBuilder: (widget) => SlideAnimation(
@@ -85,7 +86,7 @@ class AnxietyScreen extends StatelessWidget {
                     ),
                   ),
                   children: [
-                    HomeTopBanner(),
+                    //HomeTopBanner(),
                     ScriptureList(
                       text: a,
                       press: () {
