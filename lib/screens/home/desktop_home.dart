@@ -245,7 +245,7 @@ class _DesktopHomeState extends State<DesktopHome> {
           context: context,
           type: AlertType.none,
           title: "We look forward to your mail",
-          desc: "deepbreath@skylinefuturistic.com",
+          desc: "alanholly@placeholder.com",
           style: AlertStyle(
             titleStyle: TextStyle(
               fontSize: getProportionateScreenWidth(15),

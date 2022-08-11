@@ -52,7 +52,7 @@ class HealingScreen extends StatelessWidget {
     VoidCallback press = () {
       Get.off(() => HealingScreen());
     };
-    final currentWidth = MediaQuery.of(context).size.width;
+    //final currentWidth = MediaQuery.of(context).size.width;
     return Container(
       decoration: backGroundGradient(),
       child: Scaffold(
@@ -65,7 +65,7 @@ class HealingScreen extends StatelessWidget {
             icon: Icon(
               Icons.arrow_back_ios,
               color: Colors.blueGrey,
-              size: getProportionateScreenWidth(15),
+              size: getProportionateScreenWidth(10),
             ),
             onPressed: () {
               Get.off(() => ResponsiveHome());

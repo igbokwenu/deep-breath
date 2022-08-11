@@ -75,155 +75,157 @@ class AnxietyScreen extends StatelessWidget {
         body: SafeArea(
           child: SingleChildScrollView(
             child: AnimationLimiter(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: AnimationConfiguration.toStaggeredList(
-                  duration: const Duration(milliseconds: 600),
-                  childAnimationBuilder: (widget) => SlideAnimation(
-                    horizontalOffset: 50.0,
-                    child: ScaleAnimation(
-                      child: widget,
+              child: Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: AnimationConfiguration.toStaggeredList(
+                    duration: const Duration(milliseconds: 600),
+                    childAnimationBuilder: (widget) => SlideAnimation(
+                      horizontalOffset: 50.0,
+                      child: ScaleAnimation(
+                        child: widget,
+                      ),
                     ),
+                    children: [
+                      //HomeTopBanner(),
+                      ScriptureList(
+                        text: a,
+                        press: () {
+                          Get.to(() => MyApp(
+                                url: aUrl,
+                                press: press,
+                                title: a,
+                                author: smith,
+                              ));
+                        },
+                      ),
+                      ScriptureList(
+                        text: b,
+                        press: () {
+                          Get.to(() => MyApp(
+                                url: bUrl,
+                                press: press,
+                                title: b,
+                                author: smith,
+                              ));
+                        },
+                      ),
+                      // ScriptureList(
+                      //   text: c,
+                      //   press: () {
+                      //     Get.to(() => MyApp(
+                      //           url: cUrl,
+                      //           press: press,
+                      //           title: c,
+                      //           author: smith,
+                      //         ));
+                      //   },
+                      // ),
+                      // ScriptureList(
+                      //   text: d,
+                      //   press: () {
+                      //     Get.to(() => MyApp(
+                      //           url: dUrl,
+                      //           press: press,
+                      //           title: d,
+                      //           author: smith,
+                      //         ));
+                      //   },
+                      // ),
+                      // ScriptureList(
+                      //   text: e,
+                      //   press: () {
+                      //     Get.to(() => MyApp(
+                      //           url: eUrl,
+                      //           press: press,
+                      //           title: e,
+                      //           author: smith,
+                      //         ));
+                      //   },
+                      // ),
+                      // ScriptureList(
+                      //   text: f,
+                      //   press: () {
+                      //     Get.to(
+                      //       MyApp(
+                      //         url: fUrl,
+                      //         press: press,
+                      //         title: f,
+                      //         author: smith,
+                      //       ),
+                      //     );
+                      //   },
+                      // ),
+                      // ScriptureList(
+                      //   text: g,
+                      //   press: () {
+                      //     Get.to(() => MyApp(
+                      //           url: gUrl,
+                      //           press: press,
+                      //           title: g,
+                      //           author: smith,
+                      //         ));
+                      //   },
+                      // ),
+                      // ScriptureList(
+                      //   text: h,
+                      //   press: () {
+                      //     Get.to(() => MyApp(
+                      //           url: hUrl,
+                      //           press: press,
+                      //           title: h,
+                      //           author: smith,
+                      //         ));
+                      //   },
+                      // ),
+                      // ScriptureList(
+                      //   text: i,
+                      //   press: () {
+                      //     Get.to(() => MyApp(
+                      //           url: iUrl,
+                      //           press: press,
+                      //           title: i,
+                      //           author: smith,
+                      //         ));
+                      //   },
+                      // ),
+                      // ScriptureList(
+                      //   text: j,
+                      //   press: () {
+                      //     Get.to(() => MyApp(
+                      //           url: jUrl,
+                      //           press: press,
+                      //           title: j,
+                      //           author: smith,
+                      //         ));
+                      //   },
+                      // ),
+                      //  ScriptureList(
+                      //   text: k,
+                      // press: () {
+                      // Get.to(() => MyApp(
+                      //        url: kUrl,
+                      //       press: press,
+                      //     title: k,
+                      //      author: smith,
+                      //       ));
+                      // },
+                      // ),
+                      // ScriptureList(
+                      // text: l,
+                      // press: () {
+                      //   Get.to(
+                      //  MyApp(
+                      //    url: lUrl,
+                      //   press: press,
+                      //  title: l,
+                      //   author: smith,
+                      //   ),
+                      //   );
+                      //   },
+                      //  ),
+                    ],
                   ),
-                  children: [
-                    //HomeTopBanner(),
-                    ScriptureList(
-                      text: a,
-                      press: () {
-                        Get.to(() => MyApp(
-                              url: aUrl,
-                              press: press,
-                              title: a,
-                              author: smith,
-                            ));
-                      },
-                    ),
-                    ScriptureList(
-                      text: b,
-                      press: () {
-                        Get.to(() => MyApp(
-                              url: bUrl,
-                              press: press,
-                              title: b,
-                              author: smith,
-                            ));
-                      },
-                    ),
-                    // ScriptureList(
-                    //   text: c,
-                    //   press: () {
-                    //     Get.to(() => MyApp(
-                    //           url: cUrl,
-                    //           press: press,
-                    //           title: c,
-                    //           author: smith,
-                    //         ));
-                    //   },
-                    // ),
-                    // ScriptureList(
-                    //   text: d,
-                    //   press: () {
-                    //     Get.to(() => MyApp(
-                    //           url: dUrl,
-                    //           press: press,
-                    //           title: d,
-                    //           author: smith,
-                    //         ));
-                    //   },
-                    // ),
-                    // ScriptureList(
-                    //   text: e,
-                    //   press: () {
-                    //     Get.to(() => MyApp(
-                    //           url: eUrl,
-                    //           press: press,
-                    //           title: e,
-                    //           author: smith,
-                    //         ));
-                    //   },
-                    // ),
-                    // ScriptureList(
-                    //   text: f,
-                    //   press: () {
-                    //     Get.to(
-                    //       MyApp(
-                    //         url: fUrl,
-                    //         press: press,
-                    //         title: f,
-                    //         author: smith,
-                    //       ),
-                    //     );
-                    //   },
-                    // ),
-                    // ScriptureList(
-                    //   text: g,
-                    //   press: () {
-                    //     Get.to(() => MyApp(
-                    //           url: gUrl,
-                    //           press: press,
-                    //           title: g,
-                    //           author: smith,
-                    //         ));
-                    //   },
-                    // ),
-                    // ScriptureList(
-                    //   text: h,
-                    //   press: () {
-                    //     Get.to(() => MyApp(
-                    //           url: hUrl,
-                    //           press: press,
-                    //           title: h,
-                    //           author: smith,
-                    //         ));
-                    //   },
-                    // ),
-                    // ScriptureList(
-                    //   text: i,
-                    //   press: () {
-                    //     Get.to(() => MyApp(
-                    //           url: iUrl,
-                    //           press: press,
-                    //           title: i,
-                    //           author: smith,
-                    //         ));
-                    //   },
-                    // ),
-                    // ScriptureList(
-                    //   text: j,
-                    //   press: () {
-                    //     Get.to(() => MyApp(
-                    //           url: jUrl,
-                    //           press: press,
-                    //           title: j,
-                    //           author: smith,
-                    //         ));
-                    //   },
-                    // ),
-                    //  ScriptureList(
-                    //   text: k,
-                    // press: () {
-                    // Get.to(() => MyApp(
-                    //        url: kUrl,
-                    //       press: press,
-                    //     title: k,
-                    //      author: smith,
-                    //       ));
-                    // },
-                    // ),
-                    // ScriptureList(
-                    // text: l,
-                    // press: () {
-                    //   Get.to(
-                    //  MyApp(
-                    //    url: lUrl,
-                    //   press: press,
-                    //  title: l,
-                    //   author: smith,
-                    //   ),
-                    //   );
-                    //   },
-                    //  ),
-                  ],
                 ),
               ),
             ),

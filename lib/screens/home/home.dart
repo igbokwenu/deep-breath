@@ -137,7 +137,7 @@ class _MobileHomeState extends State<MobileHome> {
                         onTap: () {
                           Alert(
                             context: context,
-                            title: "Date: Coming Soon",
+                            title: "Coming Soon",
                             desc: "Topic: ",
                             content: Column(
                               children: [

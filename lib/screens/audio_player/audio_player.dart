@@ -186,6 +186,9 @@ class ControlButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentWidth = MediaQuery.of(context).size.width;
+    const double mobileAudioImage = 250;
+    const double desktopAudioImage = 170;
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Column(
@@ -193,8 +196,12 @@ class ControlButtons extends StatelessWidget {
           ZoomIn(
             duration: Duration(milliseconds: 1200),
             child: Container(
-              width: getProportionateScreenWidth(300),
-              height: getProportionateScreenWidth(300),
+              width: getProportionateScreenWidth(currentWidth < mobileWidth
+                  ? mobileAudioImage
+                  : desktopAudioImage),
+              height: getProportionateScreenWidth(currentWidth < mobileWidth
+                  ? mobileAudioImage
+                  : desktopAudioImage),
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
