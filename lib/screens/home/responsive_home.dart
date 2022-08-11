@@ -4,19 +4,19 @@ import 'package:flutter/material.dart';
 import 'desktop_home.dart';
 import 'home.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class ResponsiveHome extends StatefulWidget {
+  const ResponsiveHome({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _ResponsiveHomeState createState() => _ResponsiveHomeState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ResponsiveHomeState extends State<ResponsiveHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ResponsiveLayout(
-        mobileBody: Home(),
+        mobileBody: MobileHome(),
         desktopBody: DesktopHome(),
       ),
     );

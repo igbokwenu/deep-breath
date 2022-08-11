@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 
-import '../home.dart';
+import '../responsive_home.dart';
 
 class AnxietyScreen extends StatelessWidget {
   const AnxietyScreen({Key? key}) : super(key: key);
@@ -68,7 +68,7 @@ class AnxietyScreen extends StatelessWidget {
               size: getProportionateScreenWidth(20),
             ),
             onPressed: () {
-              Get.off(() => Home());
+              Get.off(() => ResponsiveHome());
             },
           ),
         ),

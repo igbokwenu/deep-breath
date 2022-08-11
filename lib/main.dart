@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       // home: Home(),
       initialRoute: "/",
       routes: {
-        '/': (ctx) => HomePage(),
+        '/': (ctx) => ResponsiveHome(),
         '/anxiety': (ctx) => AnxietyScreen(),
       },
     );

@@ -2,11 +2,10 @@ import 'package:deep_breath/components/constants.dart';
 import 'package:deep_breath/components/size_config.dart';
 import 'package:deep_breath/models/models.dart';
 import 'package:deep_breath/screens/audio_player/audio_player.dart';
+import 'package:deep_breath/screens/home/responsive_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
-
-import '../home.dart';
 
 class FaithScreen extends StatelessWidget {
   const FaithScreen({Key? key}) : super(key: key);
@@ -68,7 +67,7 @@ class FaithScreen extends StatelessWidget {
               size: getProportionateScreenWidth(20),
             ),
             onPressed: () {
-              Get.off(() => Home());
+              Get.off(() => ResponsiveHome());
             },
           ),
         ),

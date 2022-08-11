@@ -2,11 +2,10 @@ import 'package:deep_breath/components/constants.dart';
 import 'package:deep_breath/components/size_config.dart';
 import 'package:deep_breath/models/models.dart';
 import 'package:deep_breath/screens/audio_player/audio_player.dart';
+import 'package:deep_breath/screens/home/responsive_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
-
-import '../home.dart';
 
 class SalvationScreen extends StatelessWidget {
   const SalvationScreen({Key? key}) : super(key: key);
@@ -37,12 +36,12 @@ class SalvationScreen extends StatelessWidget {
     //const String h = "God is still the same today";
     //const String hUrl =
     //    "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FBuild%20your%20faith%2Fh_faith_God_is_still_the_same_today.mp3?alt=media&token=f9626b37-4f40-4d86-86cc-cda24db002f7";
-   // const String i = "Repentance and obedience";
+    // const String i = "Repentance and obedience";
     //const String iUrl =
-  //      "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FBuild%20your%20faith%2Fi_faith_the_need_for_repentance_and_obedience.mp3?alt=media&token=1e7a28e5-794e-4f56-aa18-a3a7221cc30e";
-   // const String j = "Repentance and obedience part 2";
-  //  const String jUrl =
-  //      "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FBuild%20your%20faith%2Fj_faith_the_need_for_repentance_and_obedience_2.mp3?alt=media&token=63393940-b264-45e9-97f8-9340c4135fb6";
+    //      "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FBuild%20your%20faith%2Fi_faith_the_need_for_repentance_and_obedience.mp3?alt=media&token=1e7a28e5-794e-4f56-aa18-a3a7221cc30e";
+    // const String j = "Repentance and obedience part 2";
+    //  const String jUrl =
+    //      "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FBuild%20your%20faith%2Fj_faith_the_need_for_repentance_and_obedience_2.mp3?alt=media&token=63393940-b264-45e9-97f8-9340c4135fb6";
     //const String k = "Healing and deliverance";
     //const String kUrl =
     //   "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FHealing%2F11.%20Healing%20and%20Deliverance.mp3?alt=media&token=85c7cb7f-100b-4052-b326-29c5be3ad95a";
@@ -68,7 +67,7 @@ class SalvationScreen extends StatelessWidget {
               size: getProportionateScreenWidth(20),
             ),
             onPressed: () {
-              Get.off(() => Home());
+              Get.off(() => ResponsiveHome());
             },
           ),
         ),
@@ -165,39 +164,39 @@ class SalvationScreen extends StatelessWidget {
                             ));
                       },
                     ),
-                   // ScriptureList(
-                   //   text: h,
-                  //    press: () {
+                    // ScriptureList(
+                    //   text: h,
+                    //    press: () {
                     //    Get.to(() => MyApp(
-                      //        url: hUrl,
+                    //        url: hUrl,
                     //          press: press,
                     //          title: h,
                     //          author: smith,
-                       //     ));
-                   //   },
-                  //  ),
-                  //  ScriptureList(
-                     // text: i,
-                      //press: () {
-                   //     Get.to(() => MyApp(
-                           //   url: iUrl,
-                          //    press: press,
-                          //    title: i,
-                          //    author: smith,
-                         //   ));
+                    //     ));
+                    //   },
+                    //  ),
+                    //  ScriptureList(
+                    // text: i,
+                    //press: () {
+                    //     Get.to(() => MyApp(
+                    //   url: iUrl,
+                    //    press: press,
+                    //    title: i,
+                    //    author: smith,
+                    //   ));
                     //  },
-                   // ),
-                   // ScriptureList(
+                    // ),
+                    // ScriptureList(
                     //  text: j,
                     //  press: () {
                     //    Get.to(() => MyApp(
-                      //        url: jUrl,
-                         //     press: press,
-                      //        title: j,
-                          //    author: smith,
-                      //      ));
+                    //        url: jUrl,
+                    //     press: press,
+                    //        title: j,
+                    //    author: smith,
+                    //      ));
                     //  },
-                  //  ),
+                    //  ),
                     //  ScriptureList(
                     //   text: k,
                     // press: () {
