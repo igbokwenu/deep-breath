@@ -86,19 +86,23 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    final currentWidth = MediaQuery.of(context).size.width;
+    const double textSize = 10;
     return Container(
       decoration: backGroundGradient(),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          toolbarHeight: getProportionateScreenWidth(20),
+          toolbarHeight:
+              getProportionateScreenWidth(currentWidth < mobileWidth ? 25 : 15),
           elevation: 0,
           backgroundColor: Colors.transparent,
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back_ios,
               color: Colors.blueGrey,
-              size: getProportionateScreenWidth(10),
+              size: getProportionateScreenWidth(
+                  currentWidth < mobileWidth ? 20 : 10),
             ),
             onPressed: widget.press,
           ),
@@ -115,13 +119,15 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                   child: Text(
                     widget.title,
                     style: TextStyle(
-                        fontSize: getProportionateScreenWidth(9),
+                        fontSize: getProportionateScreenWidth(
+                            currentWidth < mobileWidth ? 20 : 10),
                         color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
                 ),
                 SizedBox(
-                  height: getProportionateScreenWidth(10),
+                  height: getProportionateScreenWidth(
+                      currentWidth < mobileWidth ? 12 : 6),
                 ),
                 // Display play/pause button and volume/speed sliders.
                 ControlButtons(_player),
@@ -131,7 +137,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                   child: Text(
                     "${authorNullCheck()}",
                     style: TextStyle(
-                        fontSize: getProportionateScreenWidth(9),
+                        fontSize: getProportionateScreenWidth(
+                            currentWidth < mobileWidth ? 20 : 10),
                         color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
@@ -187,8 +194,11 @@ class ControlButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentWidth = MediaQuery.of(context).size.width;
-    const double mobileAudioImage = 250;
+    const double mobileAudioImage = 240;
     const double desktopAudioImage = 100;
+    const double mobileTextSize = 15;
+    const double desktopTextSize = 15;
+
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Column(
