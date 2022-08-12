@@ -157,7 +157,7 @@ class _MobileHomeState extends State<MobileHome> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize:
-                                          getProportionateScreenWidth(16)),
+                                          getProportionateScreenWidth(14)),
                                 ),
                                 onPressed: () => Navigator.pop(context),
                                 width: getProportionateScreenWidth(120),
@@ -289,7 +289,7 @@ class _MobileHomeState extends State<MobileHome> {
           context: context,
           type: AlertType.none,
           title: "We look forward to your mail",
-          desc: "deepbreath@skylinefuturistic.com",
+          desc: "hollyalan@placeholder.com",
           style: AlertStyle(
             titleStyle: TextStyle(
               fontSize: getProportionateScreenWidth(15),
