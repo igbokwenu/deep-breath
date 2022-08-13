@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
+import '../../components/textConstants.dart';
 import 'components/anxiety.dart';
 
 class DesktopHome extends StatefulWidget {
@@ -76,11 +77,16 @@ class _DesktopHomeState extends State<DesktopHome> {
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  SizedBox(
+                    height: getProportionateScreenWidth(15),
+                  ),
                   BibleStudyButton(),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         FadeInLeft(
                           duration: Duration(milliseconds: duration),
@@ -98,6 +104,25 @@ class _DesktopHomeState extends State<DesktopHome> {
                             image: 'assets/images/anxiety_square.gif',
                             press: () => Get.off(() => AnxietyScreen()),
                             backgroundColor: Colors.red,
+                          ),
+                        ),
+                        FadeInRight(
+                          duration: Duration(milliseconds: duration),
+                          child: DesktopHomeItem(
+                            subText: 'faith',
+                            titleText: "build\n",
+                            image: 'assets/images/believe.gif',
+                            press: () => Get.off(() => FaithScreen()),
+                          ),
+                        ),
+                        FadeInRight(
+                          duration: Duration(milliseconds: duration),
+                          child: DesktopHomeItem(
+                            subText: 'saved',
+                            titleText: "get\n",
+                            image:
+                                'assets/images/9D98EB85-4321-4835-9FF0-822278A4C101.gif',
+                            press: () => Get.off(() => SalvationScreen()),
                           ),
                         ),
                       ],
@@ -216,7 +241,7 @@ class _DesktopHomeState extends State<DesktopHome> {
               thickness: 2,
             ),
             Text(
-              "In loving memory of my mum, Kathrine Ugochi Okafor, the most prayerful woman who ever lived, and Colleen Holloran Foshee of Deep Breath Ministries, a remarkable woman of faith. Special thanks to Lisa Ramsey, whose constant fellowship with me rebuilt my faith through my health challenges; And to Tochukwu Nnamonu (TC), a friend and brother who would not let things I built over the years collapse. Special thanks to Alan and Holly Smith who provided a myraid of scriptural references and faith building resources which ended up inspiring my making of this app. And to my siblings; Dee, Nnanyelu, Amaka and Sweet for their support and prayers. And to Judie, and Jack for the fellowship. \n This app was originally intended as a personal resource for building my faith in the midst of a health crises that eventually spiraled into a health and financial crisis. Over the course of time, I realised that my crisis was a spiritual first affair as the doctors could not find anything wrong with me physically. This triggered a spiritual reawakening and a journey that has brought me here. It is my hope and prayers that you find these resources helpful in whichever aspect of your life that you seek healing.",
+              aboutText,
               style: TextStyle(fontSize: getProportionateScreenWidth(12)),
             ),
           ],
@@ -245,7 +270,7 @@ class _DesktopHomeState extends State<DesktopHome> {
           context: context,
           type: AlertType.none,
           title: "We look forward to your mail",
-          desc: "alanholly@placeholder.com",
+          desc: contactEmail,
           style: AlertStyle(
             titleStyle: TextStyle(
               fontSize: getProportionateScreenWidth(15),
@@ -328,7 +353,7 @@ class BibleStudyButton extends StatelessWidget {
             ).show();
           },
           child: Container(
-            margin: EdgeInsets.only(top: getProportionateScreenWidth(15)),
+            //margin: EdgeInsets.only(top: getProportionateScreenWidth(15)),
             padding: EdgeInsets.only(
               left: getProportionateScreenWidth(10),
               right: getProportionateScreenWidth(10),
