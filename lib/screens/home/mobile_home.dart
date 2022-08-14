@@ -197,7 +197,7 @@ class _MobileHomeState extends State<MobileHome> {
                     child: MobileHomeItem(
                       subText: 'sickness',
                       image: 'assets/images/milk-bottle-baby-bottle-sick.gif',
-                      press: () => Get.off(() => HealingScreen()),
+                      press: () => Get.to(() => HealingScreen()),
                     ),
                   ),
                   FadeInRight(
@@ -205,7 +205,7 @@ class _MobileHomeState extends State<MobileHome> {
                     child: MobileHomeItem(
                       subText: 'anxiety',
                       image: 'assets/images/anxiety_square.gif',
-                      press: () => Get.off(() => AnxietyScreen()),
+                      press: () => Get.to(() => AnxietyScreen()),
                       backgroundColor: Colors.red,
                     ),
                   ),
@@ -215,7 +215,7 @@ class _MobileHomeState extends State<MobileHome> {
                       subText: 'faith',
                       titleText: "build\n",
                       image: 'assets/images/believe.gif',
-                      press: () => Get.off(() => FaithScreen()),
+                      press: () => Get.to(() => FaithScreen()),
                     ),
                   ),
                   FadeInDown(
@@ -224,7 +224,7 @@ class _MobileHomeState extends State<MobileHome> {
                       subText: 'saved',
                       titleText: "get\n",
                       image: 'assets/images/saved.gif',
-                      press: () => Get.off(() => SalvationScreen()),
+                      press: () => Get.to(() => SalvationScreen()),
                     ),
                   ),
                   SizedBox(

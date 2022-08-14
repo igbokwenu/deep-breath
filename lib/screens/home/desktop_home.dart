@@ -94,7 +94,7 @@ class _DesktopHomeState extends State<DesktopHome> {
                             subText: 'sickness',
                             image:
                                 'assets/images/milk-bottle-baby-bottle-sick.gif',
-                            press: () => Get.off(() => HealingScreen()),
+                            press: () => Get.to(() => HealingScreen()),
                           ),
                         ),
                         FadeInRight(
@@ -102,7 +102,7 @@ class _DesktopHomeState extends State<DesktopHome> {
                           child: DesktopHomeItem(
                             subText: 'anxiety',
                             image: 'assets/images/panic.gif',
-                            press: () => Get.off(() => AnxietyScreen()),
+                            press: () => Get.to(() => AnxietyScreen()),
                             backgroundColor: Colors.red,
                           ),
                         ),
@@ -112,7 +112,7 @@ class _DesktopHomeState extends State<DesktopHome> {
                             subText: 'faith',
                             titleText: "build\n",
                             image: 'assets/images/believe.gif',
-                            press: () => Get.off(() => FaithScreen()),
+                            press: () => Get.to(() => FaithScreen()),
                           ),
                         ),
                         FadeInRight(
@@ -121,7 +121,7 @@ class _DesktopHomeState extends State<DesktopHome> {
                             subText: 'saved',
                             titleText: "get\n",
                             image: 'assets/images/saved.gif',
-                            press: () => Get.off(() => SalvationScreen()),
+                            press: () => Get.to(() => SalvationScreen()),
                           ),
                         ),
                       ],
