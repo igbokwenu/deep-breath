@@ -80,7 +80,7 @@ class _DesktopHomeState extends State<DesktopHome> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: getProportionateScreenWidth(15),
+                    height: 15,
                   ),
                   BibleStudyButton(),
                   SingleChildScrollView(
@@ -155,7 +155,7 @@ class _DesktopHomeState extends State<DesktopHome> {
                   //   ),
                   // ),
                   SizedBox(
-                    height: getProportionateScreenWidth(10),
+                    height: 10,
                   )
                 ],
               ),
@@ -270,22 +270,22 @@ class _DesktopHomeState extends State<DesktopHome> {
           context: context,
           type: AlertType.none,
           title: mailIntro,
-          desc: contactEmail,
+          desc: contactNames,
           style: AlertStyle(
             titleStyle: TextStyle(
-              fontSize: getProportionateScreenWidth(15),
+              fontSize: getProportionateScreenWidth(9),
             ),
             descStyle: TextStyle(
-              fontSize: getProportionateScreenWidth(15),
+              fontSize: getProportionateScreenWidth(9),
             ),
           ),
           content: Column(
             children: [
               Text(
-                contactNames,
+                contactEmail,
                 style: TextStyle(
                     color: Colors.black,
-                    fontSize: getProportionateScreenWidth(16)),
+                    fontSize: getProportionateScreenWidth(9)),
               ),
             ],
           ),
@@ -295,7 +295,7 @@ class _DesktopHomeState extends State<DesktopHome> {
                 "Send a mail",
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: getProportionateScreenWidth(15),
+                  fontSize: getProportionateScreenWidth(9),
                 ),
               ),
               onPressed: () => Navigator.pop(context),

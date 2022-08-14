@@ -48,7 +48,7 @@ class FaithScreen extends StatelessWidget {
     //const String l = "Guard your convictions";
     //const String lUrl =
     //   "https://firebasestorage.googleapis.com/v0/b/official-deep-breath.appspot.com/o/deepBreath%2FAudio%2FHealing%2F12.%20Guard%20your%20convictions.mp3?alt=media&token=63f4ee3b-5a8d-4ea2-bbab-0b657d2fd3cc";
-    const String smith = "Streamlined By Alan & Holly Smith";
+    const String smith = "By Alan & Holly Smith";
     VoidCallback press = () {
       Get.off(() => FaithScreen());
     };
