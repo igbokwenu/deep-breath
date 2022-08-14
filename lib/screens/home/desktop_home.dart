@@ -86,7 +86,7 @@ class _DesktopHomeState extends State<DesktopHome> {
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         FadeInLeft(
                           duration: Duration(milliseconds: duration),
@@ -101,7 +101,7 @@ class _DesktopHomeState extends State<DesktopHome> {
                           duration: Duration(milliseconds: duration),
                           child: DesktopHomeItem(
                             subText: 'anxiety',
-                            image: 'assets/images/anxiety_square.gif',
+                            image: 'assets/images/panic.gif',
                             press: () => Get.off(() => AnxietyScreen()),
                             backgroundColor: Colors.red,
                           ),
@@ -128,34 +128,34 @@ class _DesktopHomeState extends State<DesktopHome> {
                       ],
                     ),
                   ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        FadeInDown(
-                          duration: Duration(milliseconds: duration),
-                          child: DesktopHomeItem(
-                            subText: 'faith',
-                            titleText: "build\n",
-                            image: 'assets/images/believe.gif',
-                            press: () => Get.off(() => FaithScreen()),
-                          ),
-                        ),
-                        FadeInDown(
-                          duration: Duration(milliseconds: duration),
-                          child: DesktopHomeItem(
-                            subText: 'saved',
-                            titleText: "get\n",
-                            image:
-                                'assets/images/9D98EB85-4321-4835-9FF0-822278A4C101.gif',
-                            press: () => Get.off(() => SalvationScreen()),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  // SingleChildScrollView(
+                  //   scrollDirection: Axis.horizontal,
+                  //   child: Row(
+                  //     children: [
+                  //       FadeInDown(
+                  //         duration: Duration(milliseconds: duration),
+                  //         child: DesktopHomeItem(
+                  //           subText: 'faith',
+                  //           titleText: "build\n",
+                  //           image: 'assets/images/believe.gif',
+                  //           press: () => Get.off(() => FaithScreen()),
+                  //         ),
+                  //       ),
+                  //       FadeInDown(
+                  //         duration: Duration(milliseconds: duration),
+                  //         child: DesktopHomeItem(
+                  //           subText: 'saved',
+                  //           titleText: "get\n",
+                  //           image:
+                  //               'assets/images/9D98EB85-4321-4835-9FF0-822278A4C101.gif',
+                  //           press: () => Get.off(() => SalvationScreen()),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                   SizedBox(
-                    height: getProportionateScreenWidth(50),
+                    height: getProportionateScreenWidth(10),
                   )
                 ],
               ),
@@ -269,7 +269,7 @@ class _DesktopHomeState extends State<DesktopHome> {
         Alert(
           context: context,
           type: AlertType.none,
-          title: "We look forward to your mail",
+          title: mailIntro,
           desc: contactEmail,
           style: AlertStyle(
             titleStyle: TextStyle(
@@ -282,7 +282,7 @@ class _DesktopHomeState extends State<DesktopHome> {
           content: Column(
             children: [
               Text(
-                "Contact Alan & Holly: ",
+                contactNames,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: getProportionateScreenWidth(16)),

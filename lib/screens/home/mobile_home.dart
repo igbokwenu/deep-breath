@@ -289,7 +289,7 @@ class _MobileHomeState extends State<MobileHome> {
         Alert(
           context: context,
           type: AlertType.none,
-          title: "We look forward to your mail",
+          title: mailIntro,
           desc: contactEmail,
           style: AlertStyle(
             titleStyle: TextStyle(
@@ -302,7 +302,7 @@ class _MobileHomeState extends State<MobileHome> {
           content: Column(
             children: [
               Text(
-                "Contact Alan & Holly: ",
+                contactNames,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: getProportionateScreenWidth(16)),

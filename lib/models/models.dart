@@ -96,11 +96,11 @@ class DesktopHomeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double imageSize = 90;
+    const double imageSize = 80;
     return Padding(
       padding: EdgeInsets.only(
-        left: getProportionateScreenWidth(15),
-        right: getProportionateScreenWidth(15),
+        left: getProportionateScreenWidth(5),
+        right: getProportionateScreenWidth(5),
         top: getProportionateScreenWidth(20),
       ),
       child: Stack(
@@ -132,19 +132,27 @@ class DesktopHomeItem extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: getProportionateScreenWidth(15),
-                        vertical: getProportionateScreenWidth(10)),
+                        horizontal: getProportionateScreenWidth(5),
+                        vertical: getProportionateScreenWidth(6)),
                     child: Text.rich(
                       TextSpan(
                         style: TextStyle(color: kWhiteColor),
                         children: [
                           TextSpan(
                             text: titleText ?? "overcome\n",
-                            style: bannerTextStyle(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: getProportionateScreenWidth(8),
+                              fontStyle: FontStyle.italic,
+                            ),
                           ),
                           TextSpan(
                             text: subText,
-                            style: bannerSubTextStyle(),
+                            style: TextStyle(
+                                color: kWhiteColor,
+                                fontWeight: FontWeight.bold,
+                                backgroundColor: kPrimaryColor.withOpacity(0.5),
+                                fontSize: getProportionateScreenWidth(7)),
                           )
                         ],
                       ),

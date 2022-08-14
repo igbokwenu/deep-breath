@@ -2,7 +2,7 @@ import 'package:deep_breath/screens/home/responsive_layout_model.dart';
 import 'package:flutter/material.dart';
 
 import 'desktop_home.dart';
-import 'home.dart';
+import 'mobile_home.dart';
 
 class ResponsiveHome extends StatefulWidget {
   const ResponsiveHome({Key? key}) : super(key: key);

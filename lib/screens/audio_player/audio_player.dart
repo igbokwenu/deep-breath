@@ -94,7 +94,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           toolbarHeight:
-              getProportionateScreenWidth(currentWidth < mobileWidth ? 25 : 15),
+              getProportionateScreenWidth(currentWidth < mobileWidth ? 40 : 20),
           elevation: 0,
           backgroundColor: Colors.transparent,
           leading: IconButton(
@@ -102,7 +102,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               Icons.arrow_back_ios,
               color: Colors.blueGrey,
               size: getProportionateScreenWidth(
-                  currentWidth < mobileWidth ? 20 : 10),
+                  currentWidth < mobileWidth ? 25 : 10),
             ),
             onPressed: widget.press,
           ),
@@ -194,7 +194,7 @@ class ControlButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentWidth = MediaQuery.of(context).size.width;
-    const double mobileAudioImage = 240;
+    const double mobileAudioImage = 350;
     const double desktopAudioImage = 100;
     const double mobileTextSize = 15;
     const double desktopTextSize = 15;

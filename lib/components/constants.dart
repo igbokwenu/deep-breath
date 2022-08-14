@@ -61,13 +61,13 @@ TextStyle bannerSubTextStyle() {
       color: kWhiteColor,
       fontWeight: FontWeight.bold,
       backgroundColor: kPrimaryColor.withOpacity(0.5),
-      fontSize: getProportionateScreenWidth(14));
+      fontSize: getProportionateScreenWidth(15));
 }
 
 TextStyle bannerTextStyle() {
   return TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: getProportionateScreenWidth(12),
+    fontSize: getProportionateScreenWidth(20),
     fontStyle: FontStyle.italic,
   );
 }

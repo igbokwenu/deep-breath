@@ -53,19 +53,22 @@ class AnxietyScreen extends StatelessWidget {
     VoidCallback press = () {
       Get.off(() => AnxietyScreen());
     };
+    final currentWidth = MediaQuery.of(context).size.width;
     return Container(
       decoration: backGroundGradient(),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          toolbarHeight: getProportionateScreenWidth(20),
+          toolbarHeight:
+              getProportionateScreenWidth(currentWidth < mobileWidth ? 40 : 20),
           elevation: 0,
           backgroundColor: Colors.transparent,
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back_ios,
               color: Colors.blueGrey,
-              size: getProportionateScreenWidth(10),
+              size: getProportionateScreenWidth(
+                  currentWidth < mobileWidth ? 20 : 10),
             ),
             onPressed: () {
               Get.off(() => ResponsiveHome());
