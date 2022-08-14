@@ -120,40 +120,13 @@ class _DesktopHomeState extends State<DesktopHome> {
                           child: DesktopHomeItem(
                             subText: 'saved',
                             titleText: "get\n",
-                            image:
-                                'assets/images/9D98EB85-4321-4835-9FF0-822278A4C101.gif',
+                            image: 'assets/images/saved.gif',
                             press: () => Get.off(() => SalvationScreen()),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  // SingleChildScrollView(
-                  //   scrollDirection: Axis.horizontal,
-                  //   child: Row(
-                  //     children: [
-                  //       FadeInDown(
-                  //         duration: Duration(milliseconds: duration),
-                  //         child: DesktopHomeItem(
-                  //           subText: 'faith',
-                  //           titleText: "build\n",
-                  //           image: 'assets/images/believe.gif',
-                  //           press: () => Get.off(() => FaithScreen()),
-                  //         ),
-                  //       ),
-                  //       FadeInDown(
-                  //         duration: Duration(milliseconds: duration),
-                  //         child: DesktopHomeItem(
-                  //           subText: 'saved',
-                  //           titleText: "get\n",
-                  //           image:
-                  //               'assets/images/9D98EB85-4321-4835-9FF0-822278A4C101.gif',
-                  //           press: () => Get.off(() => SalvationScreen()),
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
                   SizedBox(
                     height: 10,
                   )
@@ -273,10 +246,10 @@ class _DesktopHomeState extends State<DesktopHome> {
           desc: contactNames,
           style: AlertStyle(
             titleStyle: TextStyle(
-              fontSize: getProportionateScreenWidth(9),
+              fontSize: getProportionateScreenWidth(5),
             ),
             descStyle: TextStyle(
-              fontSize: getProportionateScreenWidth(9),
+              fontSize: getProportionateScreenWidth(7),
             ),
           ),
           content: Column(
@@ -285,7 +258,7 @@ class _DesktopHomeState extends State<DesktopHome> {
                 contactEmail,
                 style: TextStyle(
                     color: Colors.black,
-                    fontSize: getProportionateScreenWidth(9)),
+                    fontSize: getProportionateScreenWidth(7.5)),
               ),
             ],
           ),
@@ -295,7 +268,7 @@ class _DesktopHomeState extends State<DesktopHome> {
                 "Send a mail",
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: getProportionateScreenWidth(9),
+                  fontSize: getProportionateScreenWidth(6),
                 ),
               ),
               onPressed: () => Navigator.pop(context),

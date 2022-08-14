@@ -223,8 +223,7 @@ class _MobileHomeState extends State<MobileHome> {
                     child: MobileHomeItem(
                       subText: 'saved',
                       titleText: "get\n",
-                      image:
-                          'assets/images/9D98EB85-4321-4835-9FF0-822278A4C101.gif',
+                      image: 'assets/images/saved.gif',
                       press: () => Get.off(() => SalvationScreen()),
                     ),
                   ),
@@ -290,7 +289,7 @@ class _MobileHomeState extends State<MobileHome> {
           context: context,
           type: AlertType.none,
           title: mailIntro,
-          desc: contactEmail,
+          desc: contactNames,
           style: AlertStyle(
             titleStyle: TextStyle(
               fontSize: getProportionateScreenWidth(15),
@@ -302,7 +301,7 @@ class _MobileHomeState extends State<MobileHome> {
           content: Column(
             children: [
               Text(
-                contactNames,
+                contactEmail,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: getProportionateScreenWidth(16)),
