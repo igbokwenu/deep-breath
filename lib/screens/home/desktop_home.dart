@@ -83,12 +83,16 @@ class _DesktopHomeState extends State<DesktopHome> {
                 SizedBox(
                   height: 40,
                 ),
-                BibleStudyButton(),
+                Center(child: BibleStudyButton()),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
+                      SizedBox(
+                        width: 8,
+                      ),
                       FadeInLeft(
                         duration: Duration(milliseconds: duration),
                         child: DesktopHomeItem(
@@ -133,7 +137,7 @@ class _DesktopHomeState extends State<DesktopHome> {
                     : Column(
                         children: [
                           SizedBox(
-                            height: 55,
+                            height: 90,
                           ),
                           Text("Powered By Faith"),
                         ],
