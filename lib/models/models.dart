@@ -372,12 +372,15 @@ Alert reachOutAlertButton(BuildContext context) {
     ),
     content: Column(
       children: [
-        Text(
-          contactEmail,
-          style: TextStyle(
-              color: Colors.black,
-              fontSize: getProportionateScreenWidth(
-                  currentWidth < mobileWidth ? 16 : 7.5)),
+        GestureDetector(
+          onTap: launchMail,
+          child: Text(
+            contactEmail,
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: getProportionateScreenWidth(
+                    currentWidth < mobileWidth ? 16 : 7.5)),
+          ),
         ),
         SizedBox(
           height: 5,

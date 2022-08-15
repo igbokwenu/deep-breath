@@ -12,7 +12,10 @@ Future<void> launchLink() async {
 }
 
 Future<void> launchMail() async {
-  final Uri _url = Uri.parse(contactEmail);
+  final Uri _url = Uri(
+      scheme: 'mailto',
+      path: contactEmail,
+      queryParameters: {'subject': 'From Deep Breath App'});
   if (!await launchUrl(_url)) {
     throw 'Could not launch $_url';
   }
