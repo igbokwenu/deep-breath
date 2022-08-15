@@ -1,6 +1,9 @@
 import 'package:deep_breath/components/constants.dart';
 import 'package:deep_breath/components/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
+
+import '../components/textConstants.dart';
 
 class HomeTopBanner extends StatelessWidget {
   const HomeTopBanner({
@@ -348,4 +351,62 @@ class ScriptureList extends StatelessWidget {
       ),
     );
   }
+}
+
+Alert reachOutAlertButton(BuildContext context) {
+  final currentWidth = MediaQuery.of(context).size.width;
+  return Alert(
+    context: context,
+    type: AlertType.none,
+    title: mailIntro,
+    desc: contactNames,
+    style: AlertStyle(
+      titleStyle: TextStyle(
+        fontSize:
+            getProportionateScreenWidth(currentWidth < mobileWidth ? 15 : 5),
+      ),
+      descStyle: TextStyle(
+        fontSize:
+            getProportionateScreenWidth(currentWidth < mobileWidth ? 15 : 7),
+      ),
+    ),
+    content: Column(
+      children: [
+        Text(
+          contactEmail,
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: getProportionateScreenWidth(
+                  currentWidth < mobileWidth ? 16 : 7.5)),
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        GestureDetector(
+          onTap: launchLink,
+          child: Text(
+            contactWebsiteString,
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: getProportionateScreenWidth(
+                    currentWidth < mobileWidth ? 10 : 5)),
+          ),
+        ),
+      ],
+    ),
+    buttons: [
+      DialogButton(
+        child: Text(
+          "Send a mail",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: getProportionateScreenWidth(
+                currentWidth < mobileWidth ? 15 : 6),
+          ),
+        ),
+        onPressed: launchMail,
+        width: currentWidth < mobileWidth ? 170 : 140,
+      )
+    ],
+  );
 }

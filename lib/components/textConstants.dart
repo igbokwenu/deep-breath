@@ -3,3 +3,5 @@ const String aboutText =
 const String contactEmail = "alanholly@placeholder.com";
 const String mailIntro = "We look forward to your mail";
 const String contactNames = "Contact Alan & Holly";
+const String contactWebsite = "https://hollywsmith.com";
+const String contactWebsiteString = "for more info visit: www.hollywsmith.com";

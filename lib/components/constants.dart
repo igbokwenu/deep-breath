@@ -1,5 +1,22 @@
 import 'package:deep_breath/components/size_config.dart';
+import 'package:deep_breath/components/textConstants.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+//works with url_launcher package
+Future<void> launchLink() async {
+  final Uri _url = Uri.parse(contactWebsite);
+  if (!await launchUrl(_url)) {
+    throw 'Could not launch $_url';
+  }
+}
+
+Future<void> launchMail() async {
+  final Uri _url = Uri.parse(contactEmail);
+  if (!await launchUrl(_url)) {
+    throw 'Could not launch $_url';
+  }
+}
 
 //final currentWidth = MediaQuery.of(context).size.width;
 const mobileWidth = 550;

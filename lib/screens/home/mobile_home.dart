@@ -285,43 +285,7 @@ class _MobileHomeState extends State<MobileHome> {
         ).show();
         break;
       case 2:
-        Alert(
-          context: context,
-          type: AlertType.none,
-          title: mailIntro,
-          desc: contactNames,
-          style: AlertStyle(
-            titleStyle: TextStyle(
-              fontSize: getProportionateScreenWidth(15),
-            ),
-            descStyle: TextStyle(
-              fontSize: getProportionateScreenWidth(15),
-            ),
-          ),
-          content: Column(
-            children: [
-              Text(
-                contactEmail,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: getProportionateScreenWidth(16)),
-              ),
-            ],
-          ),
-          buttons: [
-            DialogButton(
-              child: Text(
-                "Send a mail",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: getProportionateScreenWidth(15),
-                ),
-              ),
-              onPressed: () => Navigator.pop(context),
-              width: 170,
-            )
-          ],
-        ).show();
+        reachOutAlertButton(context).show();
         break;
     }
   }

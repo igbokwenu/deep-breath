@@ -132,14 +132,40 @@ class _DesktopHomeState extends State<DesktopHome> {
                     ],
                   ),
                 ),
-                currentWidth < 600
+                currentWidth < mobileWidth
                     ? SizedBox()
                     : Column(
                         children: [
                           SizedBox(
                             height: 90,
                           ),
-                          Text("Powered By Faith"),
+                          Text("Powered By Love"),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          GestureDetector(
+                            onTap: launchLink,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.heart_broken,
+                                  size: 20,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  "Reach Out",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                 SizedBox(
@@ -253,43 +279,7 @@ class _DesktopHomeState extends State<DesktopHome> {
         ).show();
         break;
       case 2:
-        Alert(
-          context: context,
-          type: AlertType.none,
-          title: mailIntro,
-          desc: contactNames,
-          style: AlertStyle(
-            titleStyle: TextStyle(
-              fontSize: getProportionateScreenWidth(5),
-            ),
-            descStyle: TextStyle(
-              fontSize: getProportionateScreenWidth(7),
-            ),
-          ),
-          content: Column(
-            children: [
-              Text(
-                contactEmail,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: getProportionateScreenWidth(7.5)),
-              ),
-            ],
-          ),
-          buttons: [
-            DialogButton(
-              child: Text(
-                "Send a mail",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: getProportionateScreenWidth(6),
-                ),
-              ),
-              onPressed: () => Navigator.pop(context),
-              width: 170,
-            )
-          ],
-        ).show();
+        reachOutAlertButton(context).show();
         break;
     }
   }
@@ -333,7 +323,7 @@ class BibleStudyButton extends StatelessWidget {
                         fontSize: getProportionateScreenWidth(10)),
                   ),
                   onPressed: () => Navigator.pop(context),
-                  width: getProportionateScreenWidth(120),
+                  width: getProportionateScreenWidth(80),
                   color: Colors.orange.withOpacity(0.7),
                 )
               ],
