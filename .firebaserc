@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "official-deep-breath"
-  }
+    "default": "official-deep-breath",
+    "deeponline": "deepbreathonline"
+  },
+  "targets": {},
+  "etags": {}
 }
