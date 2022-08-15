@@ -54,6 +54,7 @@ class _DesktopHomeState extends State<DesktopHome> {
   Widget build(BuildContext context) {
     final int duration = 1200;
     final currentHeight = MediaQuery.of(context).size.height;
+    final currentWidth = MediaQuery.of(context).size.width;
     // You have to call it on your starting screen
     SizeConfig().init(context);
     return Container(
@@ -127,12 +128,19 @@ class _DesktopHomeState extends State<DesktopHome> {
                     ],
                   ),
                 ),
-                currentHeight < 300
+                currentWidth < 600
                     ? SizedBox()
-                    : Text("Powered By Faith")
+                    : Column(
+                        children: [
+                          SizedBox(
+                            height: 55,
+                          ),
+                          Text("Powered By Faith"),
+                        ],
+                      ),
                 SizedBox(
                   height: 10,
-                )
+                ),
               ],
             ),
           ),
