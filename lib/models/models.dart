@@ -424,11 +424,11 @@ Alert reachOutAlertButton(BuildContext context) {
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: getProportionateScreenWidth(
-                        currentWidth < mobileWidth ? 15 : 6),
+                        currentWidth < mobileWidth ? 12 : 6),
                   ),
                 ),
                 onPressed: launchHollysMail,
-                width: currentWidth < mobileWidth ? 170 : 140,
+                width: currentWidth < mobileWidth ? 120 : 140,
               ),
             ),
             Tooltip(
@@ -439,11 +439,11 @@ Alert reachOutAlertButton(BuildContext context) {
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: getProportionateScreenWidth(
-                        currentWidth < mobileWidth ? 15 : 6),
+                        currentWidth < mobileWidth ? 12 : 6),
                   ),
                 ),
                 onPressed: launchAlansMail,
-                width: currentWidth < mobileWidth ? 170 : 140,
+                width: currentWidth < mobileWidth ? 120 : 140,
               ),
             )
           ],
