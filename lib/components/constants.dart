@@ -4,17 +4,34 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 //works with url_launcher package
-Future<void> launchLink() async {
-  final Uri _url = Uri.parse(contactWebsite);
+Future<void> launchHollysWebsite() async {
+  final Uri _url = Uri.parse(hollysWebsite);
   if (!await launchUrl(_url)) {
     throw 'Could not launch $_url';
   }
 }
 
-Future<void> launchMail() async {
+Future<void> launchAlansWebsite() async {
+  final Uri _url = Uri.parse(alansWebsite);
+  if (!await launchUrl(_url)) {
+    throw 'Could not launch $_url';
+  }
+}
+
+Future<void> launchHollysMail() async {
   final Uri _url = Uri(
       scheme: 'mailto',
-      path: contactEmail,
+      path: hollysEmail,
+      queryParameters: {'subject': 'From Deep Breath App'});
+  if (!await launchUrl(_url)) {
+    throw 'Could not launch $_url';
+  }
+}
+
+Future<void> launchAlansMail() async {
+  final Uri _url = Uri(
+      scheme: 'mailto',
+      path: alansEmail,
       queryParameters: {'subject': 'From Deep Breath App'});
   if (!await launchUrl(_url)) {
     throw 'Could not launch $_url';

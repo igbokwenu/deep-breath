@@ -372,44 +372,135 @@ Alert reachOutAlertButton(BuildContext context) {
     ),
     content: Column(
       children: [
-        GestureDetector(
-          onTap: launchMail,
-          child: Text(
-            contactEmail,
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: getProportionateScreenWidth(
-                    currentWidth < mobileWidth ? 16 : 7.5)),
+        Tooltip(
+          message: hollysWebsite,
+          child: GestureDetector(
+            onTap: launchHollysWebsite,
+            child: Text(
+              hollysContactWebsiteString,
+              style: TextStyle(
+                  color: Colors.pink,
+                  fontWeight: FontWeight.bold,
+                  fontSize: getProportionateScreenWidth(
+                      currentWidth < mobileWidth ? 14 : 9)),
+            ),
           ),
         ),
         SizedBox(
-          height: 5,
+          height: 7,
+        ),
+        Tooltip(
+          message: alansWebsite,
+          child: GestureDetector(
+            onTap: launchAlansWebsite,
+            child: Text(
+              alansContactWebsiteString,
+              style: TextStyle(
+                  color: Colors.blue,
+                  fontWeight: FontWeight.bold,
+                  fontSize: getProportionateScreenWidth(
+                      currentWidth < mobileWidth ? 14 : 9)),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 7,
+        ),
+        Text(
+          "Click below to send a mail",
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: getProportionateScreenWidth(
+                  currentWidth < mobileWidth ? 10 : 5)),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Tooltip(
+              message: "Send to ${hollysEmail}",
+              child: DialogButton(
+                child: Text(
+                  "Send to Holly",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: getProportionateScreenWidth(
+                        currentWidth < mobileWidth ? 15 : 6),
+                  ),
+                ),
+                onPressed: launchHollysMail,
+                width: currentWidth < mobileWidth ? 170 : 140,
+              ),
+            ),
+            Tooltip(
+              message: "Send to ${alansEmail}",
+              child: DialogButton(
+                child: Text(
+                  "Send to Alan",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: getProportionateScreenWidth(
+                        currentWidth < mobileWidth ? 15 : 6),
+                  ),
+                ),
+                onPressed: launchAlansMail,
+                width: currentWidth < mobileWidth ? 170 : 140,
+              ),
+            )
+          ],
+        )
+      ],
+    ),
+    buttons: [],
+  );
+}
+
+onReachOutAlertPressed(context) {
+  return reachOutAlertButton(context).show();
+}
+
+class Footer extends StatelessWidget {
+  final VoidCallback onPressed;
+  const Footer({
+    Key? key,
+    required this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final currentWidth = MediaQuery.of(context).size.width;
+    return Column(
+      children: [
+        SizedBox(
+          height: currentWidth < mobileWidth ? 40 : 90,
+        ),
+        Text("Powered By Love"),
+        SizedBox(
+          height: 20,
         ),
         GestureDetector(
-          onTap: launchLink,
-          child: Text(
-            contactWebsiteString,
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: getProportionateScreenWidth(
-                    currentWidth < mobileWidth ? 10 : 5)),
+          onTap: onPressed,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.heart_broken,
+                size: 20,
+                color: Colors.white,
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text(
+                "Reach Out",
+                style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
           ),
         ),
       ],
-    ),
-    buttons: [
-      DialogButton(
-        child: Text(
-          "Send a mail",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: getProportionateScreenWidth(
-                currentWidth < mobileWidth ? 15 : 6),
-          ),
-        ),
-        onPressed: launchMail,
-        width: currentWidth < mobileWidth ? 170 : 140,
-      )
-    ],
-  );
+    );
+  }
 }

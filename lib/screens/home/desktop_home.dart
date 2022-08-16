@@ -132,42 +132,11 @@ class _DesktopHomeState extends State<DesktopHome> {
                     ],
                   ),
                 ),
-                currentWidth < mobileWidth
-                    ? SizedBox()
-                    : Column(
-                        children: [
-                          SizedBox(
-                            height: 90,
-                          ),
-                          Text("Powered By Love"),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          GestureDetector(
-                            onTap: launchLink,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.heart_broken,
-                                  size: 20,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  "Reach Out",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                Footer(
+                  onPressed: () {
+                    onReachOutAlertPressed(context);
+                  },
+                ),
                 SizedBox(
                   height: 10,
                 ),

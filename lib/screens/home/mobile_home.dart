@@ -227,6 +227,11 @@ class _MobileHomeState extends State<MobileHome> {
                       press: () => Get.to(() => SalvationScreen()),
                     ),
                   ),
+                  Footer(
+                    onPressed: () {
+                      onReachOutAlertPressed(context);
+                    },
+                  ),
                   SizedBox(
                     height: getProportionateScreenWidth(50),
                   )
