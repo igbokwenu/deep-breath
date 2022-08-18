@@ -224,7 +224,7 @@ class _DesktopHomeState extends State<DesktopHome> {
             ),
             Text(
               aboutText,
-              style: TextStyle(fontSize: getProportionateScreenWidth(9)),
+              style: TextStyle(fontSize: getProportionateScreenWidth(5.5)),
             ),
           ],
         );
