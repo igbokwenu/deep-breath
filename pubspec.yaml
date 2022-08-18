@@ -47,11 +47,15 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_native_splash: ^2.2.7
+flutter_native_splash:
+  color: "#ffa500"
+  image: "assets/images/deep_breath_logo2_circular2.png"
   flutter_launcher_icons: "^0.9.2"
 flutter_icons:
+  image_path: "assets/images/deep_breath_logo2.png"
   android: true
   ios: true
-  image_path: "assets/images/deep_breath_logo2.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

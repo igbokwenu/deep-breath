@@ -153,13 +153,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.3.0"
-  flutter_launcher_icons:
+  flutter_native_splash:
     dependency: "direct dev"
     description:
-      name: flutter_launcher_icons
+      name: flutter_native_splash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.3"
+    version: "2.2.7"
   flutter_page_indicator:
     dependency: transitive
     description:
@@ -261,6 +261,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.7"
+  lint:
+    dependency: transitive
+    description:
+      name: lint
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.10.0"
   matcher:
     dependency: transitive
     description:
@@ -525,6 +532,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.1"
+  universal_io:
+    dependency: transitive
+    description:
+      name: universal_io
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.4"
   url_launcher:
     dependency: "direct main"
     description:
