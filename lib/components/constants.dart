@@ -4,6 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 //works with url_launcher package
+
+String? encodeQueryParameters(Map<String, String> params) {
+  return params.entries
+      .map((MapEntry<String, String> e) =>
+          '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+      .join('&');
+}
+
 Future<void> launchHollysWebsite() async {
   final Uri _url = Uri.parse(hollysWebsite);
   if (!await launchUrl(_url)) {
@@ -20,9 +28,12 @@ Future<void> launchAlansWebsite() async {
 
 Future<void> launchHollysMail() async {
   final Uri _url = Uri(
-      scheme: 'mailto',
-      path: hollysEmail,
-      queryParameters: {'subject': 'From Deep Breath App'});
+    scheme: 'mailto',
+    path: hollysEmail,
+    query: encodeQueryParameters(<String, String>{
+      'subject': '❤️From Deep Breath App❤️',
+    }),
+  );
   if (!await launchUrl(_url)) {
     throw 'Could not launch $_url';
   }
@@ -30,9 +41,12 @@ Future<void> launchHollysMail() async {
 
 Future<void> launchAlansMail() async {
   final Uri _url = Uri(
-      scheme: 'mailto',
-      path: alansEmail,
-      queryParameters: {'subject': 'From Deep Breath App'});
+    scheme: 'mailto',
+    path: alansEmail,
+    query: encodeQueryParameters(<String, String>{
+      'subject': '❤️From Deep Breath App❤️',
+    }),
+  );
   if (!await launchUrl(_url)) {
     throw 'Could not launch $_url';
   }
