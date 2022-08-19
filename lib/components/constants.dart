@@ -12,6 +12,7 @@ String? encodeQueryParameters(Map<String, String> params) {
       .join('&');
 }
 
+//canLaunchUrl launches in external browser while launchUrl uses internal browser
 Future<void> launchHollysWebsite() async {
   final Uri _url = Uri.parse(hollysWebsite);
   if (!await launchUrl(_url)) {
