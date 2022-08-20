@@ -55,6 +55,10 @@ Future<void> launchAlansMail() async {
 
 //final currentWidth = MediaQuery.of(context).size.width;
 const mobileWidth = 550;
+const double mobileAppBarHeight = 40;
+const double desktopAppBarHeight = 80;
+const double mobileAppIconSize = 25;
+const double desktopAppIconSize = 40;
 const kPrimaryColor = Color(0xFFFF7643);
 const kPrimaryColorB = Color(0xFFFFA53E);
 const kPrimaryLightColor = Color(0xFFFFECDF);

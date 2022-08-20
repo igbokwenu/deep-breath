@@ -1,5 +1,4 @@
 import 'package:deep_breath/components/constants.dart';
-import 'package:deep_breath/components/size_config.dart';
 import 'package:deep_breath/models/models.dart';
 import 'package:deep_breath/screens/audio_player/audio_player.dart';
 import 'package:deep_breath/screens/home/responsive_home.dart';
@@ -58,16 +57,18 @@ class HealingScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          toolbarHeight:
-              getProportionateScreenWidth(currentWidth < mobileWidth ? 40 : 20),
+          toolbarHeight: currentWidth < mobileWidth
+              ? mobileAppBarHeight
+              : desktopAppBarHeight,
           elevation: 0,
           backgroundColor: Colors.transparent,
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back_ios,
               color: Colors.blueGrey,
-              size: getProportionateScreenWidth(
-                  currentWidth < mobileWidth ? 20 : 10),
+              size: currentWidth < mobileWidth
+                  ? mobileAppIconSize
+                  : desktopAppIconSize,
             ),
             onPressed: () {
               Get.off(() => ResponsiveHome());

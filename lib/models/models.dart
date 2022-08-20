@@ -290,64 +290,71 @@ class ScriptureList extends StatelessWidget {
     final currentWidth = MediaQuery.of(context).size.width;
     const double mobileListWidth = 350;
     const double mobileListHeight = 70;
-    const double desktopListWidth = 300;
-    const double desktopListHeight = 30;
+    const double desktopListWidth = 500;
+    const double desktopListHeight = 80;
     const double radius = 10;
     return Padding(
-      padding: EdgeInsets.only(top: getProportionateScreenWidth(10)),
-      child: Stack(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              gradient: linearGradient(),
-              //color: color ?? Colors.orange,
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.circular(radius),
-              border: Border.all(
-                  width: getProportionateScreenWidth(3), color: Colors.white),
-            ),
-            alignment: Alignment.center,
-            width: getProportionateScreenWidth(currentWidth < mobileWidth
-                ? mobileListWidth
-                : desktopListWidth),
-            height: getProportionateScreenWidth(currentWidth < mobileWidth
-                ? mobileListHeight
-                : desktopListHeight),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+      padding: EdgeInsets.only(
+          top: getProportionateScreenWidth(4),
+          bottom: getProportionateScreenWidth(6)),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            Stack(
               children: [
-                SizedBox(
-                  width: getProportionateScreenWidth(15),
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: linearGradient(),
+                    //color: color ?? Colors.orange,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(radius),
+                    border: Border.all(width: 4, color: Colors.white),
+                  ),
+                  alignment: Alignment.center,
+                  width: currentWidth < mobileWidth
+                      ? mobileListWidth
+                      : desktopListWidth,
+                  height: currentWidth < mobileWidth
+                      ? mobileListHeight
+                      : desktopListHeight,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Icon(
+                        Icons.play_circle_outline,
+                        size: currentWidth < mobileWidth ? 20 : 40,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        text,
+                        style: TextStyle(
+                            fontSize: currentWidth < mobileWidth ? 15 : 23,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
                 ),
-                Icon(
-                  Icons.play_circle_outline,
-                  size: getProportionateScreenWidth(20),
-                  color: Colors.white,
-                ),
-                SizedBox(
-                  width: getProportionateScreenWidth(5),
-                ),
-                Text(
-                  text,
-                  style: TextStyle(
-                      fontSize: getProportionateScreenWidth(
-                          currentWidth < mobileWidth ? 15 : 10),
-                      color: Colors.white),
-                ),
+                Positioned.fill(
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      splashColor: kPrimaryColor.withOpacity(0.6),
+                      borderRadius: BorderRadius.circular(radius),
+                      onTap: press,
+                    ),
+                  ),
+                )
               ],
             ),
-          ),
-          Positioned.fill(
-            child: Material(
-              color: Colors.transparent,
-              child: InkWell(
-                splashColor: kPrimaryColor.withOpacity(0.6),
-                borderRadius: BorderRadius.circular(radius),
-                onTap: press,
-              ),
-            ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -406,8 +413,30 @@ Alert reachOutAlertButton(BuildContext context) {
         SizedBox(
           height: 7,
         ),
+        SelectableText(
+          "Alan: ${alansEmail}",
+          style: TextStyle(
+              color: Colors.pinkAccent,
+              fontWeight: FontWeight.bold,
+              fontSize: getProportionateScreenWidth(
+                  currentWidth < mobileWidth ? 10 : 6)),
+        ),
+        SizedBox(
+          height: 7,
+        ),
+        SelectableText(
+          "Holly: ${hollysEmail}",
+          style: TextStyle(
+              color: Colors.blue,
+              fontWeight: FontWeight.bold,
+              fontSize: getProportionateScreenWidth(
+                  currentWidth < mobileWidth ? 10 : 6)),
+        ),
+        SizedBox(
+          height: 7,
+        ),
         Text(
-          "Click below to send a mail",
+          "Or click below to send a mail from the app",
           style: TextStyle(
               color: Colors.black,
               fontSize: getProportionateScreenWidth(
@@ -471,7 +500,7 @@ class Footer extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: currentWidth < mobileWidth ? 40 : 90,
+          height: currentWidth < mobileWidth ? 40 : 80,
         ),
         Text("Powered By Love"),
         SizedBox(

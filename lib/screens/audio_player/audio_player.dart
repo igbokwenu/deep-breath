@@ -93,16 +93,18 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          toolbarHeight:
-              getProportionateScreenWidth(currentWidth < mobileWidth ? 40 : 20),
+          toolbarHeight: currentWidth < mobileWidth
+              ? mobileAppBarHeight
+              : desktopAppBarHeight,
           elevation: 0,
           backgroundColor: Colors.transparent,
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back_ios,
               color: Colors.blueGrey,
-              size: getProportionateScreenWidth(
-                  currentWidth < mobileWidth ? 25 : 10),
+              size: currentWidth < mobileWidth
+                  ? mobileAppIconSize
+                  : desktopAppIconSize,
             ),
             onPressed: widget.press,
           ),
@@ -119,15 +121,13 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                   child: Text(
                     widget.title,
                     style: TextStyle(
-                        fontSize: getProportionateScreenWidth(
-                            currentWidth < mobileWidth ? 20 : 10),
+                        fontSize: currentWidth < mobileWidth ? 20 : 23,
                         color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
                 ),
                 SizedBox(
-                  height: getProportionateScreenWidth(
-                      currentWidth < mobileWidth ? 12 : 6),
+                  height: currentWidth < mobileWidth ? 12 : 6,
                 ),
                 // Display play/pause button and volume/speed sliders.
                 ControlButtons(_player),
@@ -137,8 +137,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                   child: Text(
                     "${authorNullCheck()}",
                     style: TextStyle(
-                        fontSize: getProportionateScreenWidth(
-                            currentWidth < mobileWidth ? 20 : 10),
+                        fontSize: currentWidth < mobileWidth ? 20 : 23,
                         color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
@@ -195,7 +194,7 @@ class ControlButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     final currentWidth = MediaQuery.of(context).size.width;
     const double mobileAudioImage = 350;
-    const double desktopAudioImage = 100;
+    const double desktopAudioImage = 330;
     const double mobileTextSize = 15;
     const double desktopTextSize = 15;
 
@@ -206,12 +205,12 @@ class ControlButtons extends StatelessWidget {
           ZoomIn(
             duration: Duration(milliseconds: 1200),
             child: Container(
-              width: getProportionateScreenWidth(currentWidth < mobileWidth
+              width: currentWidth < mobileWidth
                   ? mobileAudioImage
-                  : desktopAudioImage),
-              height: getProportionateScreenWidth(currentWidth < mobileWidth
+                  : desktopAudioImage,
+              height: currentWidth < mobileWidth
                   ? mobileAudioImage
-                  : desktopAudioImage),
+                  : desktopAudioImage,
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
@@ -244,7 +243,7 @@ class ControlButtons extends StatelessWidget {
                   },
                 ),
                 SizedBox(
-                  width: getProportionateScreenWidth(20),
+                  width: 20,
                 ),
 
                 /// This StreamBuilder rebuilds whenever the player state changes, which
@@ -289,7 +288,7 @@ class ControlButtons extends StatelessWidget {
                   },
                 ),
                 SizedBox(
-                  width: getProportionateScreenWidth(20),
+                  width: 20,
                 ),
                 // Opens speed slider dialog
                 StreamBuilder<double>(

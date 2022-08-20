@@ -279,7 +279,7 @@ class BibleStudyButton extends StatelessWidget {
                     "Time: ",
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: getProportionateScreenWidth(10)),
+                        fontSize: getProportionateScreenWidth(8)),
                   ),
                 ],
               ),
@@ -289,10 +289,10 @@ class BibleStudyButton extends StatelessWidget {
                     "Let me Join!",
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: getProportionateScreenWidth(10)),
+                        fontSize: getProportionateScreenWidth(6.5)),
                   ),
                   onPressed: () => Navigator.pop(context),
-                  width: getProportionateScreenWidth(80),
+                  width: getProportionateScreenWidth(60),
                   color: Colors.orange.withOpacity(0.7),
                 )
               ],
