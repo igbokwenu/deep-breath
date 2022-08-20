@@ -369,12 +369,10 @@ Alert reachOutAlertButton(BuildContext context) {
     desc: contactNames,
     style: AlertStyle(
       titleStyle: TextStyle(
-        fontSize:
-            getProportionateScreenWidth(currentWidth < mobileWidth ? 15 : 5),
+        fontSize: currentWidth < mobileWidth ? 15 : 16,
       ),
       descStyle: TextStyle(
-        fontSize:
-            getProportionateScreenWidth(currentWidth < mobileWidth ? 15 : 7),
+        fontSize: currentWidth < mobileWidth ? 15 : 16,
       ),
     ),
     content: Column(
@@ -388,8 +386,7 @@ Alert reachOutAlertButton(BuildContext context) {
               style: TextStyle(
                   color: Colors.pink,
                   fontWeight: FontWeight.bold,
-                  fontSize: getProportionateScreenWidth(
-                      currentWidth < mobileWidth ? 14 : 9)),
+                  fontSize: currentWidth < mobileWidth ? 14 : 15),
             ),
           ),
         ),
@@ -405,8 +402,7 @@ Alert reachOutAlertButton(BuildContext context) {
               style: TextStyle(
                   color: Colors.blue,
                   fontWeight: FontWeight.bold,
-                  fontSize: getProportionateScreenWidth(
-                      currentWidth < mobileWidth ? 14 : 9)),
+                  fontSize: currentWidth < mobileWidth ? 14 : 15),
             ),
           ),
         ),
@@ -416,10 +412,9 @@ Alert reachOutAlertButton(BuildContext context) {
         SelectableText(
           "Alan: ${alansEmail}",
           style: TextStyle(
-              color: Colors.pinkAccent,
+              color: Colors.blueAccent,
               fontWeight: FontWeight.bold,
-              fontSize: getProportionateScreenWidth(
-                  currentWidth < mobileWidth ? 10 : 6)),
+              fontSize: currentWidth < mobileWidth ? 10 : 11),
         ),
         SizedBox(
           height: 7,
@@ -427,10 +422,9 @@ Alert reachOutAlertButton(BuildContext context) {
         SelectableText(
           "Holly: ${hollysEmail}",
           style: TextStyle(
-              color: Colors.blue,
+              color: Colors.pink[300],
               fontWeight: FontWeight.bold,
-              fontSize: getProportionateScreenWidth(
-                  currentWidth < mobileWidth ? 10 : 6)),
+              fontSize: currentWidth < mobileWidth ? 10 : 11),
         ),
         SizedBox(
           height: 7,
@@ -439,8 +433,7 @@ Alert reachOutAlertButton(BuildContext context) {
           "Or click below to send a mail from the app",
           style: TextStyle(
               color: Colors.black,
-              fontSize: getProportionateScreenWidth(
-                  currentWidth < mobileWidth ? 10 : 5)),
+              fontSize: currentWidth < mobileWidth ? 10 : 11),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -452,12 +445,11 @@ Alert reachOutAlertButton(BuildContext context) {
                   "Send to Holly",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: getProportionateScreenWidth(
-                        currentWidth < mobileWidth ? 12 : 5),
+                    fontSize: currentWidth < mobileWidth ? 12 : 13,
                   ),
                 ),
                 onPressed: launchHollysMail,
-                width: currentWidth < mobileWidth ? 120 : 160,
+                width: currentWidth < mobileWidth ? 120 : 120,
               ),
             ),
             Tooltip(
@@ -467,12 +459,11 @@ Alert reachOutAlertButton(BuildContext context) {
                   "Send to Alan",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: getProportionateScreenWidth(
-                        currentWidth < mobileWidth ? 12 : 5),
+                    fontSize: currentWidth < mobileWidth ? 12 : 13,
                   ),
                 ),
                 onPressed: launchAlansMail,
-                width: currentWidth < mobileWidth ? 120 : 160,
+                width: currentWidth < mobileWidth ? 120 : 120,
               ),
             )
           ],
