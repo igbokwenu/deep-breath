@@ -6,6 +6,7 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:just_audio_background/just_audio_background.dart';
 import 'package:rxdart/rxdart.dart';
 
 import 'components/common.dart';
@@ -30,7 +31,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.black,
     ));
@@ -49,7 +50,18 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     });
     // Try to load audio from a source and catch any errors.
     try {
-      await _player.setAudioSource(AudioSource.uri(Uri.parse(widget.url)));
+      await _player.setAudioSource(
+        AudioSource.uri(
+          Uri.parse(widget.url),
+          tag: MediaItem(
+              title: widget.title,
+              id: widget.title.removeAllWhitespace(),
+              album: "Deep Breath",
+              displayTitle: widget.title,
+              artUri: Uri.parse(
+                  "https://firebasestorage.googleapis.com/v0/b/deepbreathonline.appspot.com/o/images%2Fdeep_breath_logo2_circular2.png?alt=media&token=a0ec6cbd-bad0-4ccf-96c7-04cf74054f54")),
+        ),
+      );
     } catch (e) {
       print("Error loading audio source: $e");
     }
@@ -57,7 +69,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   void dispose() {
-    WidgetsBinding?.instance.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     // Release decoders and buffers back to the operating system making them
     // available for other apps to use.
     _player.dispose();
@@ -117,7 +129,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 DelayedDisplay(
-                  delay: Duration(seconds: 3),
+                  delay: Duration(seconds: 2),
                   child: Text(
                     widget.title,
                     style: TextStyle(
@@ -133,7 +145,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                 ControlButtons(_player),
                 sizedBoxNullCheck(),
                 DelayedDisplay(
-                  delay: Duration(seconds: 5),
+                  delay: Duration(seconds: 4),
                   child: Text(
                     "${authorNullCheck()}",
                     style: TextStyle(

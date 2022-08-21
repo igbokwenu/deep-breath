@@ -3,8 +3,9 @@ import 'package:deep_breath/screens/home/responsive_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:just_audio_background/just_audio_background.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations(
     [
@@ -13,6 +14,11 @@ void main() async {
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight
     ],
+  );
+  await JustAudioBackground.init(
+    androidNotificationChannelId: 'com.ryanheise.bg_demo.channel.audio',
+    androidNotificationChannelName: 'Audio playback',
+    androidNotificationOngoing: true,
   );
   runApp(MyApp());
 }

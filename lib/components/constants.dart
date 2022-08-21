@@ -3,8 +3,16 @@ import 'package:deep_breath/components/textConstants.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-//works with url_launcher package
+//remove all white spaces in a string
+extension ExtendedString on String {
+  /// The string without any whitespace.
+  String removeAllWhitespace() {
+    // Remove all white space.
+    return this.replaceAll(RegExp(r"\s+"), "");
+  }
+}
 
+//works with url_launcher package
 String? encodeQueryParameters(Map<String, String> params) {
   return params.entries
       .map((MapEntry<String, String> e) =>
