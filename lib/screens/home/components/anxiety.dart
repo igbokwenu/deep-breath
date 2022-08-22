@@ -1,11 +1,10 @@
 import 'package:deep_breath/components/constants.dart';
-import 'package:deep_breath/components/size_config.dart';
 import 'package:deep_breath/models/models.dart';
-import 'package:deep_breath/screens/audio_player/audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 
+import '../../audio_player/audio_player.dart';
 import '../responsive_home.dart';
 
 class AnxietyScreen extends StatelessWidget {
@@ -96,7 +95,7 @@ class AnxietyScreen extends StatelessWidget {
                       ScriptureList(
                         text: a,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: aUrl,
                                 press: press,
                                 title: a,
@@ -107,7 +106,7 @@ class AnxietyScreen extends StatelessWidget {
                       ScriptureList(
                         text: b,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: bUrl,
                                 press: press,
                                 title: b,

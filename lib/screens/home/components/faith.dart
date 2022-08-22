@@ -1,11 +1,11 @@
 import 'package:deep_breath/components/constants.dart';
-import 'package:deep_breath/components/size_config.dart';
 import 'package:deep_breath/models/models.dart';
-import 'package:deep_breath/screens/audio_player/audio_player.dart';
 import 'package:deep_breath/screens/home/responsive_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
+
+import '../../audio_player/audio_player.dart';
 
 class FaithScreen extends StatelessWidget {
   const FaithScreen({Key? key}) : super(key: key);
@@ -94,7 +94,7 @@ class FaithScreen extends StatelessWidget {
                       ScriptureList(
                         text: a,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: aUrl,
                                 press: press,
                                 title: a,
@@ -105,7 +105,7 @@ class FaithScreen extends StatelessWidget {
                       ScriptureList(
                         text: b,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: bUrl,
                                 press: press,
                                 title: b,
@@ -116,7 +116,7 @@ class FaithScreen extends StatelessWidget {
                       ScriptureList(
                         text: c,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: cUrl,
                                 press: press,
                                 title: c,
@@ -127,7 +127,7 @@ class FaithScreen extends StatelessWidget {
                       ScriptureList(
                         text: d,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: dUrl,
                                 press: press,
                                 title: d,
@@ -138,7 +138,7 @@ class FaithScreen extends StatelessWidget {
                       ScriptureList(
                         text: e,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: eUrl,
                                 press: press,
                                 title: e,
@@ -150,7 +150,7 @@ class FaithScreen extends StatelessWidget {
                         text: f,
                         press: () {
                           Get.to(
-                            MyApp(
+                            AudioPlayerClass(
                               url: fUrl,
                               press: press,
                               title: f,
@@ -162,7 +162,7 @@ class FaithScreen extends StatelessWidget {
                       ScriptureList(
                         text: g,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: gUrl,
                                 press: press,
                                 title: g,
@@ -173,7 +173,7 @@ class FaithScreen extends StatelessWidget {
                       ScriptureList(
                         text: h,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: hUrl,
                                 press: press,
                                 title: h,
@@ -184,7 +184,7 @@ class FaithScreen extends StatelessWidget {
                       ScriptureList(
                         text: i,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: iUrl,
                                 press: press,
                                 title: i,
@@ -195,7 +195,7 @@ class FaithScreen extends StatelessWidget {
                       ScriptureList(
                         text: j,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: jUrl,
                                 press: press,
                                 title: j,

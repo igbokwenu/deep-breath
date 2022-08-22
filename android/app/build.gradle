@@ -44,8 +44,8 @@ android {
         applicationId "com.skylinefuturistic.deep_breath.deep_breath"
         minSdkVersion 23
         targetSdkVersion 33
-        versionCode 11
-        versionName "1.0.4"
+        versionCode 12
+        versionName "1.0.5"
     }
 
     signingConfigs {

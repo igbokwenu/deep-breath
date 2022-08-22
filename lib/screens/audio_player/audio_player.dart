@@ -11,21 +11,22 @@ import 'package:rxdart/rxdart.dart';
 
 import 'components/common.dart';
 
-class MyApp extends StatefulWidget {
+class AudioPlayerClass extends StatefulWidget {
   final String url;
   final VoidCallback press;
   final String title;
   final String? author;
-  MyApp(
+  AudioPlayerClass(
       {required this.url,
       required this.press,
       required this.title,
       this.author});
   @override
-  _MyAppState createState() => _MyAppState();
+  _AudioPlayerClassState createState() => _AudioPlayerClassState();
 }
 
-class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
+class _AudioPlayerClassState extends State<AudioPlayerClass>
+    with WidgetsBindingObserver {
   final _player = AudioPlayer();
 
   @override
@@ -58,6 +59,10 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               id: widget.title.removeAllWhitespace(),
               album: "Deep Breath",
               displayTitle: widget.title,
+              displaySubtitle: widget.author,
+              displayDescription: "Rediscover your faith",
+              artist: widget.author,
+              genre: "Gospel",
               artUri: Uri.parse(
                   "https://firebasestorage.googleapis.com/v0/b/deepbreathonline.appspot.com/o/images%2Fdeep_breath_logo2_circular2.png?alt=media&token=a0ec6cbd-bad0-4ccf-96c7-04cf74054f54")),
         ),
@@ -75,16 +80,16 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     _player.dispose();
     super.dispose();
   }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.paused) {
-      // Release the player's resources when not in use. We use "stop" so that
-      // if the app resumes later, it will still remember what position to
-      // resume from.
-      _player.stop();
-    }
-  }
+//Code below was causing the audio to stop playing whenever app is exited
+  // @override
+  // void didChangeAppLifecycleState(AppLifecycleState state) {
+  //   if (state == AppLifecycleState.paused) {
+  //     // Release the player's resources when not in use. We use "stop" so that
+  //     // if the app resumes later, it will still remember what position to
+  //     // resume from.
+  //     _player.stop();
+  //   }
+  // }
 
   /// Collects the data useful for displaying in a seek bar, using a handy
   /// feature of rx_dart to combine the 3 streams of interest into one.

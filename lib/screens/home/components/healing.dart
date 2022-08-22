@@ -93,7 +93,7 @@ class HealingScreen extends StatelessWidget {
                       ScriptureList(
                         text: a,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: aUrl,
                                 press: press,
                                 title: a,
@@ -104,7 +104,7 @@ class HealingScreen extends StatelessWidget {
                       ScriptureList(
                         text: b,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: bUrl,
                                 press: press,
                                 title: b,
@@ -115,7 +115,7 @@ class HealingScreen extends StatelessWidget {
                       ScriptureList(
                         text: c,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: cUrl,
                                 press: press,
                                 title: c,
@@ -126,7 +126,7 @@ class HealingScreen extends StatelessWidget {
                       ScriptureList(
                         text: d,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: dUrl,
                                 press: press,
                                 title: d,
@@ -137,7 +137,7 @@ class HealingScreen extends StatelessWidget {
                       ScriptureList(
                         text: e,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: eUrl,
                                 press: press,
                                 title: e,
@@ -149,7 +149,7 @@ class HealingScreen extends StatelessWidget {
                         text: f,
                         press: () {
                           Get.to(
-                            MyApp(
+                            AudioPlayerClass(
                               url: fUrl,
                               press: press,
                               title: f,
@@ -161,7 +161,7 @@ class HealingScreen extends StatelessWidget {
                       ScriptureList(
                         text: g,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: gUrl,
                                 press: press,
                                 title: g,
@@ -172,7 +172,7 @@ class HealingScreen extends StatelessWidget {
                       ScriptureList(
                         text: h,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: hUrl,
                                 press: press,
                                 title: h,
@@ -183,7 +183,7 @@ class HealingScreen extends StatelessWidget {
                       ScriptureList(
                         text: i,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: iUrl,
                                 press: press,
                                 title: i,
@@ -194,7 +194,7 @@ class HealingScreen extends StatelessWidget {
                       ScriptureList(
                         text: j,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: jUrl,
                                 press: press,
                                 title: j,
@@ -205,7 +205,7 @@ class HealingScreen extends StatelessWidget {
                       ScriptureList(
                         text: k,
                         press: () {
-                          Get.to(() => MyApp(
+                          Get.to(() => AudioPlayerClass(
                                 url: kUrl,
                                 press: press,
                                 title: k,
@@ -217,7 +217,7 @@ class HealingScreen extends StatelessWidget {
                         text: l,
                         press: () {
                           Get.to(
-                            MyApp(
+                            AudioPlayerClass(
                               url: lUrl,
                               press: press,
                               title: l,
