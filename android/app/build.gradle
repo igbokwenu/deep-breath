@@ -13,12 +13,12 @@ if (flutterRoot == null) {
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
-    flutterVersionCode = '1'
+    flutterVersionCode = 14
 }
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
-    flutterVersionName = '1.0'
+    flutterVersionName = '1.0.5'
 }
 
 apply plugin: 'com.android.application'
@@ -44,8 +44,8 @@ android {
         applicationId "com.skylinefuturistic.deep_breath.deep_breath"
         minSdkVersion 23
         targetSdkVersion 33
-        versionCode 13
-        versionName "1.0.5"
+        versionCode flutterVersionCode
+        versionName flutterVersionName
     }
 
     signingConfigs {
