@@ -60,7 +60,7 @@ class _AudioPlayerClassState extends State<AudioPlayerClass>
               album: "Deep Breath",
               displayTitle: widget.title,
               displaySubtitle: widget.author,
-              displayDescription: "Rediscover your faith",
+              //displayDescription: "",
               artist: widget.author,
               genre: "Gospel",
               artUri: Uri.parse(
