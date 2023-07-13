@@ -1,6 +1,6 @@
 # deep_breath
 
-Overcome sickness and anxiety with scriptures
+Overcome sickness and anxiety with meditation.
 
 ## Getting Started
 
